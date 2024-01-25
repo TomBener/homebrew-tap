@@ -11,7 +11,7 @@ cask "textsoap" do
 
   auto_updates true
 
-  app "TextSoap.app"
+  app "textsoap9.app"
 
   uninstall quit: "com.unmarked.textsoap9"
 
