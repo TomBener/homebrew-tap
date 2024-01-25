@@ -3,7 +3,7 @@ cask "textsoap" do
   sha256 :no_check
 
   url "https://textsoap.nyc3.digitaloceanspaces.com/files/textsoap9_latest.dmg"
-  name "Textsoap"
+  name "TextSoap"
   desc "Powerful text transformations with just a click"
   homepage "https://textsoap.com"
 
@@ -11,7 +11,7 @@ cask "textsoap" do
 
   auto_updates true
 
-  app "Textsoap.app"
+  app "TextSoap.app"
 
   uninstall quit: "com.unmarked.textsoap9"
 

@@ -7,6 +7,11 @@ class Bookget < Formula
   license "GPL-3.0"
   version "24.0116"
 
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
   # Use Ruby's string interpolation to insert the version number into the URL and file name
   if Hardware::CPU.intel?
     url "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS.tar.bz2"
