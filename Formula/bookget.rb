@@ -12,7 +12,6 @@ class Bookget < Formula
     strategy :github_latest
   end
 
-  # Use Ruby's string interpolation to insert the version number into the URL and file name
   if Hardware::CPU.intel?
     url "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS.tar.bz2"
     sha256 "0d98610d88c2a331235371a4725d559aebd34e62cddea8fa9ed04f04e8829ae6"
@@ -22,10 +21,8 @@ class Bookget < Formula
   end
 
   def install
-    # The binaries are already built, just install them
     bin.install "bookget"
-    # Also install `dezoomify-rs`
-    bin.install "dezoomify-rs"
+    bin.install "dezoomify-rs" # Also install `dezoomify-rs`
   end
 
   test do

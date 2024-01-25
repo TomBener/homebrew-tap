@@ -2,6 +2,7 @@
 
 cask "quarto-prerelease" do
   version "1.5.3"
+  sha256 :no_check
 
   url "https://github.com/quarto-dev/quarto-cli/releases/download/v#{version}/quarto-#{version}-macos.pkg",
       verified: "github.com/quarto-dev/quarto-cli/"

@@ -1,4 +1,4 @@
-cask "cleanshot" do
+cask "cleanshotx" do
   version "4.0.1"
   sha256 "e0172521d043c192cba9eccf0c3706bc3244b5f803b356540a6cdc280a0acf2f"
 

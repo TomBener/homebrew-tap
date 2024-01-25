@@ -1,7 +1,5 @@
 # Homebrew Formulae and Casks
 
-## Usage
-
 Install Homebrew:
 
 ```shell
