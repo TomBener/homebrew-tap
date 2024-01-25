@@ -9,11 +9,10 @@
 # For general users
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## For users in Mainland China
-# Option 1: 适合中国大陆用户使用的 Homebrew 应用代理镜像库 https://github.com/lzwme/homebrew-cn
+# For users in Mainland China
+## Option 1: 适合中国大陆用户使用的 Homebrew 应用代理镜像库 https://github.com/lzwme/homebrew-cn
 # /bin/bash -c "$(curl -fsSL https://mirror.ghproxy.com/raw.githubusercontent.com/lzwme/homebrew-cn/HEAD/install.sh)"
-
-# Option 2: Homebrew 中文网 https://brew.idayer.com
+## Option 2: Homebrew 中文网 https://brew.idayer.com
 # /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
 
 # Install Homebrew Bundle
@@ -29,13 +28,13 @@ tap "jez/formulae"  # pandoc-sidenote
 tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
 tap "homebrew-x/x" # spotube
+tap "tombener/tap"
 # tap "aljohri/-"  # docx2pdf
 # tap "zph/cervezas"  # pdftk
 # tap "ttscoff/thelab"
 # tap "oven-sh/bun" # bun
 # tap "1password/tap"  # 1password & 1password-cli
 # tap "lencx/chatgpt"
-# tap "lencx/nofwl"  # NoFWL (ChatGPT client)
 # tap "homebrew/services"
 # tap "homebrew/autoupdate"
 # tap "pts/homebrew-utils"
@@ -155,7 +154,7 @@ cask "setapp" # Comment if Setapp subscription is unavailable
 # cask "one-switch"
 # cask "pdf-squeezer"
 # cask "folx"
-# Install 4.1 manually: brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/9be98b75d567ffa19174c9ce18e1e1485cb7d20f/Casks/cleanshot.rb
+# Install 4.1 manually: `brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/9be98b75d567ffa19174c9ce18e1e1485cb7d20f/Casks/cleanshot.rb`
 # cask "cleanshot"
 
 cask "dropbox"
@@ -221,10 +220,10 @@ cask "picgo"
 cask "orbstack"
 cask "inkscape"
 cask "adobe-acrobat-pro"
+cask "zed"
 # cask "coconutbattery"
 # cask "1password-cli"
 # cask "chatgpt"
-# cask "nofwl"
 # cask "squirrel"
 # cask "bitwarden"
 # cask "tickeys"
