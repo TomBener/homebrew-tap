@@ -210,6 +210,7 @@ cask "quarto"
 # Intel Mac
     # sudo ln -s /Applications/quarto/bin/tools/x86_64/typst  /usr/local/bin/typst
 cask "spotube"
+cask "searchlink"
 cask "markdown-service-tools"
 cask "cloudflare-warp"
 cask "netnewswire"
