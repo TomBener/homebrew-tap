@@ -161,6 +161,7 @@ cask "setapp" # Comment if Setapp subscription is unavailable
 cask "dropbox"
 cask "adguard"
 cask "alfred"
+cask "raycast"
 cask "iterm2"
 cask "karabiner-elements"
 cask "keyboard-maestro"
@@ -203,7 +204,6 @@ cask "paper"
 # cask "cider"
 # cask "tor-browser"
 # cask "basictex"
-cask "raycast"
 cask "quarto"
 # Typst is installed accompined with Quarto, use the folling command to add it to PATH:
 # Apple Silicon Mac

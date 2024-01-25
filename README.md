@@ -1,4 +1,4 @@
-# Homebrew Formulae and Casks for My Personal Use
+# Homebrew Formulae and Casks
 
 ## Usage
 
