@@ -1,6 +1,6 @@
 # Homebrew Formulae and Casks
 
-Install Homebrew:
+Install [Homebrew](https://brew.sh/):
 
 ```shell
 # For general users
@@ -24,6 +24,6 @@ Tap this repository to install individual formulae and casks:
 ```shell
 brew tap tombener/tap
 
-brew install <formula-name>
-brew install --cask <cask-name>
+brew install <formula>
+brew install --cask <cask>
 ```
