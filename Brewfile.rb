@@ -1,6 +1,6 @@
 # The very first step for re-installing macOS is downloading & installing Surge or ClashX manually to proxy the network.
 # Surge: https://dl.nssurge.com/mac/v4/Surge-latest.zip
-# ClashX: ~/Library/Mobile Documents/com~apple~CloudDocs/Install-macOS/applications/ClashX.dmg
+# ClashX: ~/Library/Mobile Documents/com~apple~CloudDocs/Install-macOS/Applications/ClashX.dmg
 
 # Export
 # `brew bundle dump`: Write all installed casks/formulae/images/taps into a Brewfile.
@@ -205,7 +205,7 @@ cask "popclip"
 cask "quarto"
 # Typst is installed accompined with Quarto, use the following command to add it to PATH:
 # Apple Silicon Mac
-    # sudo ln -s /Applications/quarto/bin/tools/aarch64/typst /usr/local/bin/typst
+    # sudo ln -s /Applications/quarto/bin/tools/aarch64/typst /opt/homebrew/bin/typst
 # Intel Mac
     # sudo ln -s /Applications/quarto/bin/tools/x86_64/typst  /usr/local/bin/typst
 cask "spotube"
