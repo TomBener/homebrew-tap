@@ -23,7 +23,6 @@
 # Third-party repositories
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "romkatv/powerlevel10k"  # powerlevel10k
 tap "jez/formulae"  # pandoc-sidenote
 tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
@@ -130,6 +129,7 @@ brew "vhs"
 brew "pdfgrep"
 brew "pdfrip"
 brew "librsvg"
+brew "trurl"
 # brew "TheZoraiz/ascii-image-converter/ascii-image-converter"
 # brew "gather-cli"
 # brew "katana"
@@ -219,8 +219,9 @@ cask "pile"
 cask "picgo"
 cask "orbstack"
 cask "inkscape"
-cask "adobe-acrobat-pro"
 cask "zed"
+cask "zoom"
+cask "adobe-acrobat-pro"
 # cask "coconutbattery"
 # cask "1password-cli"
 # cask "chatgpt"
@@ -265,7 +266,7 @@ cask "font-lxgw-wenkai"
 cask "font-lxgw-neoxihei"
 cask "font-zhuque-fangsong"
 cask "font-maple"
-# cask "font-chenyuluoyan"
+cask "font-chenyuluoyan"
 # cask "font-hanamina"
 
 # Apps from Mac App Store
@@ -281,6 +282,7 @@ mas "Drafts", id: 1435957248
 mas "Spark", id: 1176895641
 mas "Noir", id: 1592917505
 mas "Save to Reader", id: 1640236961
+mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
 mas "Numbers", id: 409203825
 mas "Keynote", id: 409183694
