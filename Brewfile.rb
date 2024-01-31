@@ -256,6 +256,7 @@ cask "font-hack-nerd-font"
 cask "font-intel-one-mono"
 cask "font-monaspace"
 cask "font-inter"
+cask "font-fontawesome"
 # cask "font-mona-sans"
 # cask "font-hubot-sans"
 
