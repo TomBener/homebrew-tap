@@ -319,8 +319,10 @@ mas "iPreview", id: 1519213509
 mas "Pixelmator Pro", id: 1289583905
 mas "Vinegar", id: 1591303229
 mas "Gifski", id: 1351639930
+mas "Dropover", id: 1355679052
 # mas "Soulver", id: 1508732804
+# mas "Magnet", id: 441258766
+# mas "PasteNow", id: 1552536109
 # mas "GIF Brewery 3", id: 1081413713
 # mas "Affinity Publisher", id: 881418622
-# mas "Magnet", id: 441258766
 # mas "Wallpaper Wizard", id: 1266674560
