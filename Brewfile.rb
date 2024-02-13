@@ -224,6 +224,7 @@ cask "inkscape"
 cask "zed"
 cask "zoom"
 cask "adobe-acrobat-pro"
+# cask "ivaquero/chinese/clash-verge" # clash-verge-rev
 # cask "coconutbattery"
 # cask "1password-cli"
 # cask "chatgpt"
