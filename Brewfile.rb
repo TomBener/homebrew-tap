@@ -32,7 +32,6 @@ tap "tombener/tap"
 # tap "zph/cervezas"  # pdftk
 # tap "ttscoff/thelab"
 # tap "oven-sh/bun" # bun
-# tap "1password/tap"  # 1password & 1password-cli
 # tap "lencx/chatgpt"
 # tap "homebrew/services"
 # tap "homebrew/autoupdate"
@@ -216,6 +215,7 @@ cask "markdown-service-tools"
 cask "cloudflare-warp"
 cask "netnewswire"
 cask "1password"
+cask "1password-cli"
 cask "heynote"
 cask "pile"
 cask "picgo"
@@ -226,7 +226,6 @@ cask "zoom"
 cask "adobe-acrobat-pro"
 # cask "ivaquero/chinese/clash-verge" # clash-verge-rev
 # cask "coconutbattery"
-# cask "1password-cli"
 # cask "chatgpt"
 # cask "squirrel"
 # cask "bitwarden"
