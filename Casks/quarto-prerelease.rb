@@ -1,4 +1,5 @@
 # Formula code for installing the prerelease of Quarto
+# brew install --cask quarto-prerelease
 
 cask "quarto-prerelease" do
   version "1.5.16"
