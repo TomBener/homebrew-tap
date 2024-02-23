@@ -130,6 +130,7 @@ brew "pdfrip"
 brew "librsvg"
 brew "trurl"
 brew "pdf2svg"
+brew "switchaudio-osx"
 # brew "TheZoraiz/ascii-image-converter/ascii-image-converter"
 # brew "gather-cli"
 # brew "katana"
@@ -299,6 +300,7 @@ mas "Vimkey", id: 1585682577
 mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
 mas "Whisper Transcription", id: 1668083311
+mas "PDFgear", id: 6469021132
 # mas "TinyStudio", id: 6448954288
 # mas "OneDrive", id: 823766827
 # mas "DockX", id: 6452276577
