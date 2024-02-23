@@ -1,0 +1,19 @@
+name: update-tap
+
+on:
+  schedule:
+    # Run every half a day
+    - cron:  '0 */12 * * *'
+
+jobs:
+  update-tap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Homebrew Formulae and Casks
+        uses: dawidd6/action-homebrew-bump-formula@v3
+        with:
+          # Requires personal access token
+          token: "${{ secrets.TOKEN }}"
+          tap: tombener/tap
+          force: false
+          livecheck: true
