@@ -13,11 +13,11 @@ Install [Homebrew](https://brew.sh/):
 /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
 ```
 
-Install via [Brewfile.rb](Brewfile.rb) in the current directory. Make sure you have read the file and understand what it does before running it:
+<!-- Install via [Brewfile.rb](Brewfile.rb) in the current directory. Make sure you have read the file and understand what it does before running it:
 
 ```shell
 brew bundle --file Brewfile.rb
-```
+``` -->
 
 Tap this repository to install individual formulae and casks:
 
