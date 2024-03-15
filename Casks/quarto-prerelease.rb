@@ -1,8 +1,7 @@
 # Formula code for installing the prerelease of Quarto
-# brew install --cask quarto-prerelease
 
 cask "quarto-prerelease" do
-  version "1.5.24"
+  version "1.5.25"
   sha256 :no_check
 
   url "https://github.com/quarto-dev/quarto-cli/releases/download/v#{version}/quarto-#{version}-macos.pkg",
