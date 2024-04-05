@@ -20,11 +20,11 @@ cask "quarto-prerelease" do
   pkg "quarto-#{version}-macos.pkg"
 
   # Create a symlink for Typst
-  if Hardware::CPU.intel?
-    binary "#{appdir}/quarto/bin/tools/x86_64/typst"
-  else
-    binary "#{appdir}/quarto/bin/tools/aarch64/typst"
-  end
+  # if Hardware::CPU.intel?
+  #   binary "#{appdir}/quarto/bin/tools/x86_64/typst"
+  # else
+  #   binary "#{appdir}/quarto/bin/tools/aarch64/typst"
+  # end
 
   uninstall pkgutil: "org.rstudio.quarto"
 
