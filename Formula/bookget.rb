@@ -13,9 +13,9 @@ class Bookget < Formula
   end
 
   if Hardware::CPU.intel?
-    url "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS.tar.bz2"
+    url "https://github.com/deweizhu/bookget/releases/download/24.0116/bookget-#{version}.macOS.tar.bz2"
   else
-    url "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS-arm64.tar.bz2"
+    url "https://github.com/deweizhu/bookget/releases/download/24.0116/bookget-#{version}.macOS-arm64.tar.bz2"
   end
 
   def install
