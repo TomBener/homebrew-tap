@@ -5,7 +5,7 @@ class Bookget < Formula
   desc "数字古籍图书下载工具"
   homepage "https://github.com/deweizhu/bookget"
   license "GPL-3.0"
-  version "24.0420"
+  version "24.0116"
 
   livecheck do
     url :url
@@ -13,10 +13,10 @@ class Bookget < Formula
   end
 
   if Hardware::CPU.intel?
-    url "https://github.com/deweizhu/bookget/releases/download/24.0116/bookget-#{version}.macOS.tar.bz2"
+    url "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS.tar.bz2"
     sha256 :no_check
   else
-    url "https://github.com/deweizhu/bookget/releases/download/24.0116/bookget-#{version}.macOS-arm64.tar.bz2"
+    url "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS-arm64.tar.bz2"
     sha256 :no_check
   end
 
