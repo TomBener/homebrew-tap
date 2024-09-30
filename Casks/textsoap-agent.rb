@@ -1,5 +1,5 @@
 cask "textsoap-agent" do
-  version "9.2.7"
+  version "9.3"
   sha256 :no_check
 
   url "https://textsoap.nyc3.digitaloceanspaces.com/files/textsoapAgent_latest.dmg"
