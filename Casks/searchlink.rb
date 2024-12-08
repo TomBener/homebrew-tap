@@ -1,6 +1,6 @@
 cask "searchlink" do
-    version "2.3.74"
-    sha256 "e99c51ea5cf95d6a73be3a5b523897689e63a18c6967e435303c20506ff53e36"
+    version "2.3.76"
+    sha256 "2241b910f141da82678ca759231157373032e3985d1648e2b4aada0014ba8f20"
 
     url "https://github.com/ttscoff/searchlink/releases/download/#{version}/SearchLink.zip"
     name "SearchLink"
