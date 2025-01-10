@@ -1,8 +1,8 @@
 # Homebrew Formulae and Casks
 
-[![Auto-update formulas](https://github.com/tombener/homebrew-tap/actions/workflows/auto-update.yml/badge.svg)](https://github.com/tombener/homebrew-tap/actions/workflows/auto-update.yml)
+[![Auto Update](https://github.com/tombener/homebrew-tap/actions/workflows/auto-update.yml/badge.svg)](https://github.com/tombener/homebrew-tap/actions/workflows/auto-update.yml)
 
-Install [Homebrew](https://brew.sh/):
+Install [Homebrew](https://brew.sh):
 
 ```shell
 # For general users
@@ -13,13 +13,15 @@ Install [Homebrew](https://brew.sh/):
 /bin/bash -c "$(curl -fsSL https://mirror.ghproxy.com/raw.githubusercontent.com/lzwme/homebrew-cn/HEAD/install.sh)"
 ## Option 2
 /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
+## Option 3
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 ```
 
-<!-- Install via [Brewfile.rb](Brewfile.rb) in the current directory. Make sure you have read the file and understand what it does before running it:
+Install via [Brewfile.rb](Brewfile.rb) in the current directory. Make sure you have read the file and understand what it does before running it:
 
 ```shell
 brew bundle --file Brewfile.rb
-``` -->
+```
 
 Tap this repository to install individual formulae and casks:
 
