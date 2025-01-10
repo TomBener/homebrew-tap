@@ -27,7 +27,15 @@ class FormulaUpdater
   private
 
   def update_github_release(repo, formula_path)
-    latest_release = @client.latest_release(repo)
+    if formula_path.include?('quarto-prerelease.rb')
+      # Get all releases including pre-releases
+      releases = @client.releases(repo)
+      latest_release = releases.select(&:prerelease).max_by { |r| Gem::Version.new(r.tag_name.gsub(/^v/, '')) }
+      puts "Found latest pre-release: #{latest_release.tag_name}"
+    else
+      latest_release = @client.latest_release(repo)
+    end
+
     latest_version = latest_release.tag_name.gsub(/^v/, '')
     
     content = File.read(formula_path)
@@ -53,7 +61,7 @@ class FormulaUpdater
       .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
       .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
     
-    create_pr(formula_path, updated_content, latest_version)
+    create_pr(file_path, updated_content, latest_version)
   end
 
   def get_bookget_url(release, version)
@@ -72,6 +80,15 @@ class FormulaUpdater
     branch_name = "auto-update/#{File.basename(file_path)}-#{version}"
     
     begin
+      # Check if branch already exists
+      begin
+        @client.ref(@repo, "heads/#{branch_name}")
+        puts "Branch #{branch_name} already exists, skipping update"
+        return
+      rescue Octokit::NotFound
+        # Branch doesn't exist, continue with creation
+      end
+
       # Get the current file to obtain its SHA
       current_file = @client.contents(@repo, path: file_path)
       file_sha = current_file.sha
