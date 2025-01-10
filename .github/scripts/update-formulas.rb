@@ -12,9 +12,15 @@ class FormulaUpdater
   end
 
   def update_all
+    puts "Starting formula updates..."
     @config['formulas'].each do |name, formula|
       next unless formula['type'] == 'github'
-      update_github_release(formula['repo'], formula['file'])
+      begin
+        puts "Checking #{name}..."
+        update_github_release(formula['repo'], formula['file'])
+      rescue => e
+        puts "Error updating #{name}: #{e.message}"
+      end
     end
   end
 
@@ -27,6 +33,9 @@ class FormulaUpdater
     content = File.read(formula_path)
     current_version = content.match(/version "([^"]+)"/)[1]
     
+    puts "Current version: #{current_version}"
+    puts "Latest version: #{latest_version}"
+    
     return if latest_version == current_version
     
     # Get download URL based on the formula type
@@ -36,6 +45,7 @@ class FormulaUpdater
       get_default_url(latest_release)
     end
 
+    puts "Calculating SHA256 for #{download_url}"
     new_sha = calculate_sha256(download_url)
     
     # Update the formula
@@ -47,7 +57,7 @@ class FormulaUpdater
   end
 
   def get_bookget_url(release, version)
-    if Hardware::CPU.intel?
+    if RUBY_PLATFORM.include?('x86_64')
       "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS.tar.bz2"
     else
       "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS-arm64.tar.bz2"
@@ -61,32 +71,59 @@ class FormulaUpdater
   def create_pr(file_path, content, version)
     branch_name = "auto-update/#{File.basename(file_path)}-#{version}"
     
-    # Create branch
-    ref = @client.ref(@repo, 'heads/main')
-    @client.create_ref(@repo, "refs/heads/#{branch_name}", ref.object.sha)
-    
-    # Create commit
-    @client.create_contents(
-      @repo,
-      file_path,
-      "Update #{File.basename(file_path)} to #{version}",
-      content,
-      branch: branch_name
-    )
-    
-    # Create PR
-    @client.create_pull_request(
-      @repo,
-      'main',
-      branch_name,
-      "Update #{File.basename(file_path)} to #{version}",
-      "Auto-update #{File.basename(file_path)} to version #{version}"
-    )
+    begin
+      # Get the current file to obtain its SHA
+      current_file = @client.contents(@repo, path: file_path)
+      file_sha = current_file.sha
+      
+      puts "Creating branch #{branch_name}"
+      # Create branch
+      main_ref = @client.ref(@repo, 'heads/main')
+      @client.create_ref(@repo, "refs/heads/#{branch_name}", main_ref.object.sha)
+      
+      puts "Updating file #{file_path}"
+      # Create commit with file SHA
+      @client.create_contents(
+        @repo,
+        file_path,
+        "Update #{File.basename(file_path)} to #{version}",
+        content,
+        branch: branch_name,
+        sha: file_sha
+      )
+      
+      puts "Creating pull request"
+      # Create PR
+      @client.create_pull_request(
+        @repo,
+        'main',
+        branch_name,
+        "Update #{File.basename(file_path)} to #{version}",
+        "Auto-update #{File.basename(file_path)} to version #{version}"
+      )
+      
+      puts "Successfully created PR for #{file_path} update"
+    rescue Octokit::Error => e
+      puts "GitHub API error: #{e.message}"
+      raise
+    end
   end
 
   def calculate_sha256(url)
-    response = HTTP.follow.get(url)
-    Digest::SHA256.hexdigest(response.body.to_s)
+    retries = 3
+    begin
+      response = HTTP.follow.get(url)
+      Digest::SHA256.hexdigest(response.body.to_s)
+    rescue => e
+      retries -= 1
+      if retries > 0
+        puts "Error downloading file, retrying... (#{retries} attempts left)"
+        sleep 1
+        retry
+      else
+        raise "Failed to download file after 3 attempts: #{e.message}"
+      end
+    end
   end
 end
 
