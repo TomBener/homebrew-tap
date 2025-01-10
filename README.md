@@ -1,5 +1,8 @@
 # Homebrew Formulae and Casks
 
+[![Auto-update formulas](https://github.com/tombener/homebrew-tap/actions/workflows/auto-update.yml/badge.svg)](https://github.com/tombener/homebrew-tap/actions/workflows/auto-update.yml)
+[![Test formulas](https://github.com/tombener/homebrew-tap/actions/workflows/test.yml/badge.svg)](https://github.com/tombener/homebrew-tap/actions/workflows/test.yml)
+
 Install [Homebrew](https://brew.sh/):
 
 ```shell

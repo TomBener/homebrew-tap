@@ -1,0 +1,29 @@
+name: Auto-update formulas/casks
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # Run every 12 hours
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  update-formulas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+          
+      - name: Install dependencies
+        run: |
+          gem install octokit
+          gem install http
+
+      - name: Update formulas and casks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ruby .github/scripts/update-formulas.rb 

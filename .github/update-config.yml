@@ -1,0 +1,15 @@
+formulas:
+  quarto-prerelease:
+    type: github
+    repo: quarto-dev/quarto-cli
+    file: Casks/quarto-prerelease.rb
+    
+  searchlink:
+    type: github
+    repo: ttscoff/searchlink
+    file: Casks/searchlink.rb
+    
+  bookget:
+    type: github
+    repo: deweizhu/bookget
+    file: Formula/bookget.rb 

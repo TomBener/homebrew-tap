@@ -1,0 +1,30 @@
+name: Test formulas
+
+on:
+  pull_request:
+    paths:
+      - 'Formula/**'
+      - 'Casks/**'
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Homebrew
+        run: |
+          brew tap $GITHUB_REPOSITORY
+          
+      - name: Test installation
+        run: |
+          # Get changed files
+          CHANGED_FILES=$(git diff --name-only origin/main...HEAD)
+          
+          # Test only changed formulas/casks
+          for file in $CHANGED_FILES; do
+            if [[ $file == Formula/* ]] || [[ $file == Casks/* ]]; then
+              echo "Testing $file..."
+              brew install --formula $file || brew install --cask $file
+            fi
+          done 
