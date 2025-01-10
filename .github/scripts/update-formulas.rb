@@ -28,7 +28,6 @@ class FormulaUpdater
 
   def update_github_release(repo, formula_path)
     if formula_path.include?('quarto-prerelease.rb')
-      # Get all releases including pre-releases
       releases = @client.releases(repo)
       latest_release = releases.select(&:prerelease).max_by { |r| Gem::Version.new(r.tag_name.gsub(/^v/, '')) }
       puts "Found latest pre-release: #{latest_release.tag_name}"
@@ -51,70 +50,34 @@ class FormulaUpdater
       
       new_sha = calculate_sha256(macos_asset.browser_download_url)
       
+      # Update version and sha256 separately
       updated_content = content
         .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
-        .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
+        .sub(
+          /sha256 (?::[^"]+|"[^"]+").*$/, 
+          "sha256 \"#{new_sha}\"\n  url \"https://github.com/quarto-dev/quarto-cli/releases/download/v#{latest_version}/quarto-#{latest_version}-macos.pkg\","
+        )
       
-      create_pr(formula_path, updated_content, latest_version)
+      commit_update(formula_path, updated_content, latest_version)
     end
   end
 
-  def get_bookget_url(release, version)
-    if RUBY_PLATFORM.include?('x86_64')
-      "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS.tar.bz2"
-    else
-      "https://github.com/deweizhu/bookget/releases/download/#{version}/bookget-#{version}.macOS-arm64.tar.bz2"
-    end
-  end
-
-  def get_default_url(release)
-    release.assets[0].browser_download_url
-  end
-
-  def create_pr(file_path, content, version)
-    branch_name = "auto-update/#{File.basename(file_path)}-#{version}"
-    
+  def commit_update(file_path, content, version)
     begin
-      # Check if branch already exists
-      begin
-        @client.ref(@repo, "heads/#{branch_name}")
-        puts "Branch #{branch_name} already exists, skipping update"
-        return
-      rescue Octokit::NotFound
-        # Branch doesn't exist, continue with creation
-      end
-
       # Get the current file to obtain its SHA
       current_file = @client.contents(@repo, path: file_path)
-      file_sha = current_file.sha
       
-      puts "Creating branch #{branch_name}"
-      # Create branch
-      main_ref = @client.ref(@repo, 'heads/main')
-      @client.create_ref(@repo, "refs/heads/#{branch_name}", main_ref.object.sha)
-      
-      puts "Updating file #{file_path}"
-      # Create commit with file SHA
-      @client.create_contents(
+      puts "Committing update to #{file_path}"
+      @client.update_contents(
         @repo,
         file_path,
         "Update #{File.basename(file_path)} to #{version}",
+        current_file.sha,
         content,
-        branch: branch_name,
-        sha: file_sha
+        branch: 'main'
       )
       
-      puts "Creating pull request"
-      # Create PR
-      @client.create_pull_request(
-        @repo,
-        'main',
-        branch_name,
-        "Update #{File.basename(file_path)} to #{version}",
-        "Auto-update #{File.basename(file_path)} to version #{version}"
-      )
-      
-      puts "Successfully created PR for #{file_path} update"
+      puts "Successfully updated #{file_path} to version #{version}"
     rescue Octokit::Error => e
       puts "GitHub API error: #{e.message}"
       raise
