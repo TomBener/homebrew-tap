@@ -44,24 +44,19 @@ class FormulaUpdater
     puts "Current version: #{current_version}"
     puts "Latest version: #{latest_version}"
     
-    return if latest_version == current_version
-    
-    # Get download URL based on the formula type
-    download_url = if formula_path.include?('bookget.rb')
-      get_bookget_url(latest_release, latest_version)
-    else
-      get_default_url(latest_release)
+    if Gem::Version.new(latest_version) > Gem::Version.new(current_version)
+      # Find the correct asset for macOS
+      macos_asset = latest_release.assets.find { |a| a.name.end_with?('macos.pkg') }
+      raise "Could not find macOS package in release assets" unless macos_asset
+      
+      new_sha = calculate_sha256(macos_asset.browser_download_url)
+      
+      updated_content = content
+        .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
+        .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
+      
+      create_pr(formula_path, updated_content, latest_version)
     end
-
-    puts "Calculating SHA256 for #{download_url}"
-    new_sha = calculate_sha256(download_url)
-    
-    # Update the formula
-    updated_content = content
-      .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
-      .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
-    
-    create_pr(file_path, updated_content, latest_version)
   end
 
   def get_bookget_url(release, version)
