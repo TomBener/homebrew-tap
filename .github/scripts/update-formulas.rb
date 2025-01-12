@@ -50,12 +50,12 @@ class FormulaUpdater
       
       new_sha = calculate_sha256(macos_asset.browser_download_url)
       
-      # Update version and sha256 separately
+      # Update version, sha256, and url
       updated_content = content
         .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
         .sub(
-          /sha256 (?::[^"]+|"[^"]+").*$/, 
-          "sha256 \"#{new_sha}\"\n  url \"https://github.com/quarto-dev/quarto-cli/releases/download/v#{latest_version}/quarto-#{latest_version}-macos.pkg\","
+          /sha256 (?::[^"]+|"[^"]+").*?verified:/m,
+          "sha256 \"#{new_sha}\"\n  url \"https://github.com/quarto-dev/quarto-cli/releases/download/v#{latest_version}/quarto-#{latest_version}-macos.pkg\",\n      verified:"
         )
       
       commit_update(formula_path, updated_content, latest_version)
