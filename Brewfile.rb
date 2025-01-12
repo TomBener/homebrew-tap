@@ -1,6 +1,6 @@
 # The very first step for re-installing macOS is downloading & installing Surge or Clash Verge Rev manually to proxy the network.
 # Surge: https://dl.nssurge.com/mac/v5/Surge-latest.zip
-# Clash Verge Rev: https://www.clashverge.dev/install.html
+# Clash Verge Rev: https://www.clashverge.dev/install.html#__tabbed_1_3
 
 # Export
 # `brew bundle dump`: Write all installed casks/formulae/images/taps into a Brewfile.
@@ -48,7 +48,8 @@ brew "eza"
 brew "zoxide"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-brew "powerlevel10k"
+# brew "powerlevel10k"
+brew "starship"
 
 # Recommended libraries for `pyenv` https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 # Install Python 3.12.2 with `pyenv`: `env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.12.2`
@@ -365,7 +366,7 @@ mas "Xcode", id: 497799835
 # mas "FBReader: ePub and fb2 reader", id: 1067172178
 # mas "Windows App", id: 1295203466
 
-# Mainland China account
+# China account
 mas "iA Writer", id: 775737590
 mas "iPreview", id: 1519213509
 mas "Pixelmator Pro", id: 1289583905
