@@ -44,21 +44,56 @@ class FormulaUpdater
     puts "Latest version: #{latest_version}"
     
     if Gem::Version.new(latest_version) > Gem::Version.new(current_version)
-      # Find the correct asset for macOS
-      macos_asset = latest_release.assets.find { |a| a.name.end_with?('macos.pkg') }
-      raise "Could not find macOS package in release assets" unless macos_asset
-      
-      new_sha = calculate_sha256(macos_asset.browser_download_url)
-      
-      # Update version, sha256, and url
-      updated_content = content
-        .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
-        .sub(
-          /sha256 (?::[^"]+|"[^"]+").*?verified:/m,
-          "sha256 \"#{new_sha}\"\n  url \"https://github.com/quarto-dev/quarto-cli/releases/download/v#{latest_version}/quarto-#{latest_version}-macos.pkg\",\n      verified:"
-        )
-      
+      updated_content = update_formula_content(content, latest_version, latest_release, formula_path)
       commit_update(formula_path, updated_content, latest_version)
+    end
+  end
+
+  def update_formula_content(content, version, release, formula_path)
+    case File.basename(formula_path)
+    when 'quarto-prerelease.rb'
+      asset = release.assets.find { |a| a.name.end_with?('macos.pkg') }
+      raise "Could not find macOS package" unless asset
+      new_sha = calculate_sha256(asset.browser_download_url)
+      content
+        .sub(/version "[^"]+"/, "version \"#{version}\"")
+        .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
+        .sub(
+          /url "[^"]+"(?:,\s+verified:[^"]+)?/,
+          "url \"#{asset.browser_download_url}\""
+        )
+    
+    when 'searchlink.rb'
+      asset = release.assets.find { |a| a.name.end_with?('.zip') }
+      raise "Could not find zip file" unless asset
+      new_sha = calculate_sha256(asset.browser_download_url)
+      content
+        .sub(/version "[^"]+"/, "version \"#{version}\"")
+        .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
+        .sub(
+          /url "[^"]+"/,
+          "url \"#{asset.browser_download_url}\""
+        )
+    
+    when 'bookget.rb'
+      # Handle both Intel and ARM versions
+      intel_asset = release.assets.find { |a| a.name.include?('macOS.tar.bz2') && !a.name.include?('arm64') }
+      arm_asset = release.assets.find { |a| a.name.include?('macOS-arm64.tar.bz2') }
+      raise "Could not find required assets" unless intel_asset && arm_asset
+      
+      intel_sha = calculate_sha256(intel_asset.browser_download_url)
+      arm_sha = calculate_sha256(arm_asset.browser_download_url)
+      
+      content
+        .sub(/version "[^"]+"/, "version \"#{version}\"")
+        .sub(/sha256 "[^"]+".*?else.*?sha256 "[^"]+"/m) do |match|
+          "sha256 \"#{intel_sha}\"\n" \
+          "  else\n" \
+          "    url \"#{arm_asset.browser_download_url}\"\n" \
+          "    sha256 \"#{arm_sha}\""
+        end
+    else
+      raise "Unknown formula/cask: #{formula_path}"
     end
   end
 
@@ -103,4 +138,4 @@ class FormulaUpdater
 end
 
 updater = FormulaUpdater.new
-updater.update_all 
+updater.update_all
