@@ -86,11 +86,14 @@ class FormulaUpdater
       
       content
         .sub(/version "[^"]+"/, "version \"#{version}\"")
-        .sub(/sha256 "[^"]+".*?else.*?sha256 "[^"]+"/m) do |match|
-          "sha256 \"#{intel_sha}\"\n" \
+        .sub(/if Hardware::CPU\.intel\?.*?end/m) do |match|
+          "if Hardware::CPU.intel?\n" \
+          "    url \"#{intel_asset.browser_download_url}\"\n" \
+          "    sha256 \"#{intel_sha}\"\n" \
           "  else\n" \
           "    url \"#{arm_asset.browser_download_url}\"\n" \
-          "    sha256 \"#{arm_sha}\""
+          "    sha256 \"#{arm_sha}\"\n" \
+          "  end"
         end
     else
       raise "Unknown formula/cask: #{formula_path}"
