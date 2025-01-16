@@ -144,6 +144,7 @@ brew "typst"
 brew "groff"
 brew "bib-tool"
 brew "opencc"
+brew "gitleaks"
 brew "macos-trash"
 brew "pngpaste"
 # brew "clipboard"
@@ -350,6 +351,7 @@ mas "Refined GitHub", id: 1519867270
 mas "Whisper Transcription", id: 1668083311
 mas "PDFgear", id: 6469021132
 mas "Xcode", id: 497799835
+mas "Command X", id: 6448461551
 # mas "Velja", id: 1607635845
 # mas "WhatFont", id: 1437138382
 # mas "TinyStudio", id: 6448954288
