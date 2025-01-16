@@ -59,8 +59,8 @@ class FormulaUpdater
         .sub(/version "[^"]+"/, "version \"#{version}\"")
         .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
         .sub(
-          /url "[^"]+(?:"[^"]*)*"[^"\n]*/,
-          "url \"#{asset.browser_download_url}\""
+          /^\s*url\s+"[^"]+"\s*(?:,\s+verified:[^"]+)?$/,
+          "  url \"#{asset.browser_download_url}\""
         )
     
     when 'searchlink.rb'
