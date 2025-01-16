@@ -59,7 +59,7 @@ class FormulaUpdater
         .sub(/version "[^"]+"/, "version \"#{version}\"")
         .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
         .sub(
-          /url "[^"]+"(?:,\s+verified:[^"]+)?/,
+          /url "[^"]+(?:"[^"]*)*"[^"\n]*/,
           "url \"#{asset.browser_download_url}\""
         )
     
