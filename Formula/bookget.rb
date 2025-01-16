@@ -5,7 +5,7 @@ class Bookget < Formula
   desc "数字古籍图书下载工具"
   homepage "https://github.com/deweizhu/bookget"
   license "GPL-3.0"
-  version "24.1118"
+  version "24.1111"
 
   livecheck do
     url :url
