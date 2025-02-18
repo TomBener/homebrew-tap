@@ -146,6 +146,7 @@ brew "bib-tool"
 brew "opencc"
 brew "gitleaks"
 brew "macos-trash"
+brew "rmtrash"
 brew "pngpaste"
 # brew "clipboard"
 # brew "transmission-cli"
@@ -226,6 +227,8 @@ cask "paper"
 cask "popclip"
 cask "lunarbar"
 cask "ghostty"
+cask "cherry-studio"
+# cask "pearcleaner"
 # cask "quarto-prerelease"
 # 1. Install TinyTeX via Quarto
     # quarto install tinytex --update-path
@@ -263,6 +266,7 @@ cask "clash-verge-rev"
 cask "chatgpt"
 cask "claude"
 cask "markedit"
+cask "ollama"
 # cask "squirrel"
 # cask "bitwarden"
 # cask "tickeys"
@@ -352,6 +356,7 @@ mas "Whisper Transcription", id: 1668083311
 mas "PDFgear", id: 6469021132
 mas "Xcode", id: 497799835
 mas "Command X", id: 6448461551
+# mas "OrbitRing Launcher", id: 6740730747
 # mas "Velja", id: 1607635845
 # mas "WhatFont", id: 1437138382
 # mas "TinyStudio", id: 6448954288
