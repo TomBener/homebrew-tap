@@ -29,6 +29,7 @@ tap "jez/formulae"  # pandoc-sidenote
 tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
 tap "krtirtho/apps" # spotube
+tap "timescam/tap" # theboringnotch and trae
 tap "tombener/tap"
 # tap "aljohri/-"  # docx2pdf
 # tap "zph/cervezas"  # pdftk
@@ -48,7 +49,7 @@ brew "eza"
 brew "zoxide"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-# brew "powerlevel10k"
+brew "powerlevel10k"
 brew "starship"
 
 # Recommended libraries for `pyenv` https://github.com/pyenv/pyenv/wiki#suggested-build-environment
@@ -115,7 +116,7 @@ brew "jq"
 brew "yq"
 brew "telnet"
 brew "yarn"
-brew "youtube-dl"
+# brew "youtube-dl"
 brew "lux"
 brew "wgcf"
 brew "ffsend"
@@ -133,20 +134,20 @@ brew "pdfrip"
 brew "librsvg"
 brew "trurl"
 brew "pdf2svg"
-brew "switchaudio-osx"
+# brew "switchaudio-osx"
 brew "atuin"
 brew "monolith"
 brew "superfile"
 brew "diff-pdf"
 brew "git-filter-repo"
-brew "latexindent"
+# brew "latexindent"
 brew "typst"
 brew "groff"
 brew "bib-tool"
 brew "opencc"
 brew "gitleaks"
 brew "macos-trash"
-brew "rmtrash"
+# brew "rmtrash"
 brew "pngpaste"
 # brew "clipboard"
 # brew "transmission-cli"
@@ -167,13 +168,15 @@ brew "pngpaste"
 # brew "gdal" # For installing R package `leaflet`
 
 # Casks
-cask "setapp" # Comment if Setapp subscription is unavailable
-# cask "bettertouchtool"
-# cask "betterzip"
-# cask "downie"
-# cask "permute"
-# cask "one-switch"
-# cask "pdf-squeezer"
+# cask "setapp" # Comment if Setapp subscription is unavailable
+cask "bettertouchtool"
+cask "betterzip"
+cask "downie"
+cask "permute"
+cask "one-switch"
+cask "pdf-squeezer"
+cask "textsoap"
+cask "textsoap-agent"
 # cask "folx"
 # Install 4.1 manually: `brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/9be98b75d567ffa19174c9ce18e1e1485cb7d20f/Casks/cleanshot.rb`
 # cask "cleanshot"
@@ -213,38 +216,38 @@ cask "follow"
 # cask "topnotch"
 # cask "rstudio"
 # cask "calibre"
-cask "brooklyn"
+# cask "brooklyn"
 cask "skim"
 # cask "bunch"
 # cask "chromedriver"
 # cask "mailbutler"
 # cask "kindavim"
-cask "wooshy"
-cask "yattee"
+# cask "wooshy"
+# cask "yattee"
 cask "paper"
 # cask "cider"
 # cask "popmaker"
 cask "popclip"
 cask "lunarbar"
 cask "ghostty"
-cask "cherry-studio"
+# cask "cherry-studio"
 # cask "pearcleaner"
-# cask "quarto-prerelease"
+cask "quarto-prerelease"
 # 1. Install TinyTeX via Quarto
     # quarto install tinytex --update-path
 # 2. Install LaTeX packages
-    # tlmgr install pdfjam xurl enotez translations biblatex-sbl
-cask "quarto"
+    # tlmgr install pdfjam xurl enotez translations biblatex-sbl ctex biblatex-gb7714-2015 fvextra
+# cask "quarto"
 # Typst is installed accompined with Quarto, use the following command to add it to PATH:
 # Apple Silicon Mac
     # sudo ln -s /Applications/quarto/bin/tools/aarch64/typst /opt/homebrew/bin/typst
 # Intel Mac
     # sudo ln -s /Applications/quarto/bin/tools/x86_64/typst  /usr/local/bin/typst
-cask "bleunlock"
+# cask "bleunlock"
 cask "spotube"
 cask "searchlink"
 cask "markdown-service-tools"
-cask "cloudflare-warp"
+# cask "cloudflare-warp"
 cask "netnewswire"
 cask "1password"
 cask "1password-cli"
@@ -255,6 +258,7 @@ cask "orbstack"
 cask "inkscape"
 cask "latest"
 cask "jordanbaird-ice"
+cask "theboringnotch"
 # cask "opencat"
 # cask "gitbutler"
 # cask "zed"
@@ -267,6 +271,7 @@ cask "chatgpt"
 cask "claude"
 cask "markedit"
 cask "ollama"
+cask "pearcleaner"
 # cask "squirrel"
 # cask "bitwarden"
 # cask "tickeys"
@@ -327,7 +332,7 @@ cask "font-harano-aji"
 
 # Apps from Mac App Store
 # U.S. account
-mas "1Password for Safari", id: 1569813296
+# mas "1Password for Safari", id: 1569813296
 mas "Bob", id: 1630034110
 mas "Drafts", id: 1435957248
 # mas "Craft", id: 1487937127
@@ -337,25 +342,23 @@ mas "Drafts", id: 1435957248
 # mas "scite", id: 1551820111
 mas "Spark", id: 1176895641
 mas "Noir", id: 1592917505
-mas "Save to Reader", id: 1640236961
-mas "Omnivore", id: 1564031042
-mas "Pages", id: 409201541
-mas "Numbers", id: 409203825
-mas "Keynote", id: 409183694
+# mas "Pages", id: 409201541
+# mas "Numbers", id: 409203825
+# mas "Keynote", id: 409183694
 mas "Microsoft Word", id: 462054704
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "SingleFile for Safari", id: 6444322545
 mas "Wayback Machine", id: 1472432422
 mas "Eudic 欧路词典", id: 434350458
-mas "OpenCat", id: 6445999201
+# mas "OpenCat", id: 6445999201
 mas "Vimkey", id: 1585682577
 mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
 mas "Whisper Transcription", id: 1668083311
-mas "PDFgear", id: 6469021132
-mas "Xcode", id: 497799835
-mas "Command X", id: 6448461551
+# mas "PDFgear", id: 6469021132
+# mas "Xcode", id: 497799835
+# mas "Command X", id: 6448461551
 # mas "OrbitRing Launcher", id: 6740730747
 # mas "Velja", id: 1607635845
 # mas "WhatFont", id: 1437138382
