@@ -12,7 +12,7 @@ cask "textsoap-agent" do
   auto_updates true
 
   preflight do
-    unless system_command('ls', args: ['/Applications/TextSoap.app']).success?
+    unless system_command('ls', args: ['/Applications/textsoap9.app']).success?
       raise CaskError, "TextSoap must be installed before TextSoap Agent."
     end
   end
