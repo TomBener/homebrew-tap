@@ -31,11 +31,7 @@ tap "wader/tap"  # fq
 tap "krtirtho/apps" # spotube
 tap "tombener/tap"
 # tap "timescam/tap" # theboringnotch and trae
-# tap "zph/cervezas"  # pdftk
-# tap "ttscoff/thelab"
-# tap "oven-sh/bun" # bun
-# tap "homebrew/autoupdate"
-# tap "pts/homebrew-utils"
+# tap "ttscoff/thelab" # gather-cli
 
 # Alternative CLI tools & Plugins for Zsh
 # E.g. Modern Unix: https://github.com/ibraheemdev/modern-unix
@@ -76,7 +72,6 @@ brew "pyenv"
 brew "r"
 brew "node"
 brew "pnpm"
-# brew "bun"
 # brew "tag"
 brew "ffmpeg"
 brew "ocrmypdf"
@@ -130,23 +125,23 @@ brew "pdfrip"
 brew "librsvg"
 brew "trurl"
 brew "pdf2svg"
-# brew "switchaudio-osx"
 brew "atuin"
 brew "monolith"
 brew "superfile"
 brew "diff-pdf"
 brew "git-filter-repo"
-# brew "latexindent"
 brew "typst"
 brew "groff"
 brew "bib-tool"
 brew "opencc"
 brew "gitleaks"
 brew "macos-trash"
-# brew "rmtrash"
 brew "pngpaste"
 brew "bookget"
+# brew "rmtrash"
+# brew "switchaudio-osx"
 # brew "clipboard"
+# brew "latexindent"
 # brew "transmission-cli"
 # brew "go"
 # brew "TheZoraiz/ascii-image-converter/ascii-image-converter"
@@ -161,7 +156,6 @@ brew "bookget"
 # brew "xdotool"
 # brew "slides"
 # brew "aria2"
-# brew "pts/utils/sam2p"
 # brew "gdal" # For installing R package `leaflet`
 
 # Casks
