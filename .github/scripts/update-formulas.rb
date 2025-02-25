@@ -76,23 +76,21 @@ class FormulaUpdater
         )
     
     when 'bookget.rb'
-      # Handle both Intel and ARM versions
-      intel_asset = release.assets.find { |a| a.name.include?('macOS.tar.bz2') && !a.name.include?('arm64') }
+      # Only handle ARM version now
       arm_asset = release.assets.find { |a| a.name.include?('macOS-arm64.tar.bz2') }
-      raise "Could not find required assets" unless intel_asset && arm_asset
+      raise "Could not find ARM asset" unless arm_asset
       
-      intel_sha = calculate_sha256(intel_asset.browser_download_url)
       arm_sha = calculate_sha256(arm_asset.browser_download_url)
       
       content
         .sub(/version "[^"]+"/, "version \"#{version}\"")
         .sub(/if Hardware::CPU\.intel\?.*?end/m) do |match|
-          "if Hardware::CPU.intel?\n" \
-          "    url \"#{intel_asset.browser_download_url}\"\n" \
-          "    sha256 \"#{intel_sha}\"\n" \
-          "  else\n" \
+          "on_arm do\n" \
           "    url \"#{arm_asset.browser_download_url}\"\n" \
           "    sha256 \"#{arm_sha}\"\n" \
+          "  end\n\n" \
+          "  on_intel do\n" \
+          "    odie \"bookget is only supported on Apple Silicon (ARM) Macs, you can build it from source on Intel Macs\"\n" \
           "  end"
         end
     else
