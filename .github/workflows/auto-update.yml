@@ -2,7 +2,7 @@ name: Auto Update
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Run at 15:00 UTC+8
+    - cron: '0 16 * * *'  # Run at 00:00 UTC+8
   workflow_dispatch:  # Allow manual trigger
 
 permissions:
