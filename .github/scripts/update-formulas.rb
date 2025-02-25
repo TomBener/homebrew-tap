@@ -90,7 +90,7 @@ class FormulaUpdater
           "    sha256 \"#{arm_sha}\"\n" \
           "  end\n\n" \
           "  on_intel do\n" \
-          "    odie \"bookget is only supported on Apple Silicon (ARM) Macs, you can build it from source on Intel Macs\"\n" \
+          "    odie \"bookget only releases for Apple Silicon Macs, you can build it from source on Intel Macs\"\n" \
           "  end"
         end
     else
