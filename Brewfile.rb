@@ -29,9 +29,8 @@ tap "jez/formulae"  # pandoc-sidenote
 tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
 tap "krtirtho/apps" # spotube
-tap "timescam/tap" # theboringnotch and trae
 tap "tombener/tap"
-# tap "aljohri/-"  # docx2pdf
+# tap "timescam/tap" # theboringnotch and trae
 # tap "zph/cervezas"  # pdftk
 # tap "ttscoff/thelab"
 # tap "oven-sh/bun" # bun
@@ -88,7 +87,6 @@ brew "briss"
 brew "mupdf"
 brew "gifsicle"
 brew "gifski"
-# brew "docx2pdf"
 brew "pdftk-java"
 brew "autocorrect"
 brew "fortune"
@@ -108,7 +106,6 @@ brew "gnu-sed"
 brew "recode"
 brew "ripgrep"
 # brew "yadm"
-brew "neofetch"
 brew "qrencode"
 brew "rga"
 brew "removebg"
@@ -116,7 +113,6 @@ brew "jq"
 brew "yq"
 brew "telnet"
 brew "yarn"
-# brew "youtube-dl"
 brew "lux"
 brew "wgcf"
 brew "ffsend"
@@ -211,9 +207,9 @@ cask "cursor"
 cask "pictogram"
 cask "telegram"
 cask "zotero"
-cask "follow"
+cask "topnotch"
+# cask "follow"
 # cask "zight"
-# cask "topnotch"
 # cask "rstudio"
 # cask "calibre"
 # cask "brooklyn"
@@ -247,7 +243,6 @@ cask "quarto-prerelease"
 cask "spotube"
 cask "searchlink"
 cask "markdown-service-tools"
-# cask "cloudflare-warp"
 cask "netnewswire"
 cask "1password"
 cask "1password-cli"
@@ -259,7 +254,6 @@ cask "inkscape"
 cask "latest"
 cask "jordanbaird-ice"
 cask "theboringnotch"
-# cask "opencat"
 # cask "gitbutler"
 # cask "zed"
 # cask "zoom"
@@ -335,7 +329,7 @@ cask "font-harano-aji"
 # mas "1Password for Safari", id: 1569813296
 mas "Bob", id: 1630034110
 mas "Drafts", id: 1435957248
-# mas "Craft", id: 1487937127
+mas "Craft", id: 1487937127
 # mas "Zight", id: 417602904
 # mas "MD Clock", id: 1536358464
 # mas "PopClip", id: 445189367
@@ -350,12 +344,14 @@ mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "SingleFile for Safari", id: 6444322545
 mas "Wayback Machine", id: 1472432422
-mas "Eudic 欧路词典", id: 434350458
-# mas "OpenCat", id: 6445999201
+mas "Eudic", id: 434350458
 mas "Vimkey", id: 1585682577
 mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
+mas "Obsidian Web Clipper", id: 6720708363
 mas "Whisper Transcription", id: 1668083311
+# mas "Infuse", id: 1136220934
+# mas "OpenCat", id: 6445999201
 # mas "PDFgear", id: 6469021132
 # mas "Xcode", id: 497799835
 # mas "Command X", id: 6448461551
@@ -381,8 +377,8 @@ mas "iA Writer", id: 775737590
 mas "iPreview", id: 1519213509
 mas "Pixelmator Pro", id: 1289583905
 mas "Vinegar", id: 1591303229
-mas "Gifski", id: 1351639930
 mas "Dropover", id: 1355679052
+# mas "Gifski", id: 1351639930
 # mas "HazeOver", id: 430798174
 # mas "i-Picker", id: 1556461417
 # mas "Soulver", id: 1508732804
