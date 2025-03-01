@@ -30,7 +30,7 @@ tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
 tap "krtirtho/apps" # spotube
 tap "tombener/tap"
-# tap "timescam/tap" # theboringnotch and trae
+tap "timescam/tap" # theboringnotch and trae
 # tap "ttscoff/thelab" # gather-cli
 
 # Alternative CLI tools & Plugins for Zsh
@@ -195,6 +195,7 @@ cask "apparency"
 cask "hazel"
 cask "iina"
 cask "cursor"
+cask "trae"
 # cask "termius"
 # cask "hookmark"
 # cask "launchbar"
@@ -221,7 +222,7 @@ cask "paper"
 cask "popclip"
 cask "lunarbar"
 cask "ghostty"
-# cask "cherry-studio"
+cask "cherry-studio"
 # cask "pearcleaner"
 cask "quarto-prerelease"
 # 1. Install TinyTeX via Quarto
