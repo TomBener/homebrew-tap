@@ -47,16 +47,6 @@ brew "zsh-syntax-highlighting"
 brew "powerlevel10k"
 brew "starship"
 
-# Recommended libraries for `pyenv` https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-# Install Python 3.12.2 with `pyenv`: `env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.12.2`
-# R also requires `readline`, `xz`, `tcl-tk` etc.
-brew "openssl"
-brew "readline"
-brew "sqlite"
-brew "xz"
-brew "tcl-tk"
-# brew "zlib"
-
 # Formulae
 brew "moreutils"
 brew "wget"
@@ -68,8 +58,7 @@ brew "pandoc-plot"
 brew "hugo"
 brew "tree"
 brew "mas"
-brew "pyenv"
-brew "r"
+brew "pyenv" # Python installation manager
 brew "node"
 brew "pnpm"
 # brew "tag"
@@ -223,7 +212,9 @@ cask "popclip"
 cask "lunarbar"
 cask "ghostty"
 cask "cherry-studio"
-# cask "pearcleaner"
+cask "pearcleaner"
+brew "r-lib/rig/rig" # R installation manager
+# rig add release # Add the latest release
 cask "quarto-prerelease"
 # 1. Install TinyTeX via Quarto
     # quarto install tinytex --update-path
