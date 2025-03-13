@@ -165,6 +165,7 @@ cask "dropbox"
 cask "adguard"
 cask "alfred"
 cask "raycast"
+cask "launchbar"
 cask "iterm2"
 cask "karabiner-elements"
 cask "keyboard-maestro"
@@ -174,20 +175,19 @@ cask "github"
 cask "visual-studio-code"
 cask "google-chrome"
 cask "firefox"
-# cask "applite"
 cask "notion"
 cask "lunar"
 cask "pdf-expert"
 cask "devonthink"
-cask "historyhound"
 cask "apparency"
 cask "hazel"
 cask "iina"
 cask "cursor"
 cask "trae"
+# cask "applite"
+# cask "historyhound"
 # cask "termius"
 # cask "hookmark"
-# cask "launchbar"
 # cask "manila"
 cask "pictogram"
 cask "telegram"
@@ -337,9 +337,10 @@ mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Whisper Transcription", id: 1668083311
+mas "PDFgear", id: 6469021132
+# mas "Googly Eyes", id: 6743048714
 # mas "Infuse", id: 1136220934
 # mas "OpenCat", id: 6445999201
-# mas "PDFgear", id: 6469021132
 # mas "Xcode", id: 497799835
 # mas "Command X", id: 6448461551
 # mas "OrbitRing Launcher", id: 6740730747
