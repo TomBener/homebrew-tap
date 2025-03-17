@@ -127,6 +127,7 @@ brew "gitleaks"
 brew "macos-trash"
 brew "pngpaste"
 brew "bookget"
+brew "pdfcpu"
 # brew "rmtrash"
 # brew "switchaudio-osx"
 # brew "clipboard"
@@ -138,7 +139,6 @@ brew "bookget"
 # brew "katana"
 # brew "lua"
 # brew "tldr"
-# brew "pdfcpu"
 # brew "fanyi"
 # brew "flyctl"
 # brew "mackup"
@@ -158,7 +158,7 @@ cask "pdf-squeezer"
 cask "textsoap"
 cask "textsoap-agent"
 # cask "folx"
-# Install 4.1 manually: `brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/9be98b75d567ffa19174c9ce18e1e1485cb7d20f/Casks/cleanshot.rb`
+# Install CleanShot 4.1 manually
 # cask "cleanshot"
 
 cask "dropbox"
@@ -310,6 +310,9 @@ cask "font-sarasa-gothic"
 
 # Fonts for Japanese
 cask "font-harano-aji"
+
+# Fonts for emoji
+cask "font-noto-emoji"
 
 # Apps from Mac App Store
 # U.S. account
