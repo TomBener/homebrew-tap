@@ -1,5 +1,5 @@
 cask "textsoap" do
-  version "9.5.3"
+  version "latest"
   sha256 :no_check
 
   url "https://textsoap.nyc3.digitaloceanspaces.com/files/textsoap9_latest.dmg"
