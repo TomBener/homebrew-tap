@@ -12,7 +12,7 @@ cask "searchlink" do
       strategy :github_latest
     end
 
-    service "SearchLink Services/Jump to SearchLink Error.workflow"
+    service "SearchLink Services/Preview URL.workflow"
     service "SearchLink Services/SearchLink File.workflow"
     service "SearchLink Services/SearchLink.workflow"
   end
