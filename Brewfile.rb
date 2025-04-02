@@ -58,7 +58,8 @@ brew "pandoc-plot"
 brew "hugo"
 brew "tree"
 brew "mas"
-brew "pyenv" # Python installation manager
+brew "pyenv"
+brew "uv"
 brew "node"
 brew "pnpm"
 # brew "tag"
@@ -108,6 +109,7 @@ brew "djvu2pdf"
 brew "fq"
 brew "libpaper"
 brew "cloudflared"
+brew "rclone"
 brew "vhs"
 brew "pdfgrep"
 brew "pdfrip"
@@ -185,8 +187,8 @@ cask "hazel"
 cask "iina"
 cask "cursor"
 cask "trae"
+cask "historyhound"
 # cask "applite"
-# cask "historyhound"
 # cask "termius"
 # cask "hookmark"
 # cask "manila"
@@ -342,9 +344,9 @@ mas "Refined GitHub", id: 1519867270
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Whisper Transcription", id: 1668083311
 mas "PDFgear", id: 6469021132
+# mas "OpenCat", id: 6445999201
 # mas "Googly Eyes", id: 6743048714
 # mas "Infuse", id: 1136220934
-# mas "OpenCat", id: 6445999201
 # mas "Xcode", id: 497799835
 # mas "Command X", id: 6448461551
 # mas "OrbitRing Launcher", id: 6740730747
