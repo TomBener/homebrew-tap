@@ -212,8 +212,9 @@ cask "paper"
 # cask "cider"
 # cask "popmaker"
 cask "popclip"
+cask "bbedit"
 cask "lunarbar"
-cask "cherry-studio"
+# cask "cherry-studio"
 # cask "chatwise"
 cask "pearcleaner"
 brew "r-lib/rig/rig" # R installation manager
@@ -344,6 +345,7 @@ mas "Refined GitHub", id: 1519867270
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Whisper Transcription", id: 1668083311
 mas "PDFgear", id: 6469021132
+mas "Readest", id: 6738622779
 # mas "OpenCat", id: 6445999201
 # mas "Googly Eyes", id: 6743048714
 # mas "Infuse", id: 1136220934
