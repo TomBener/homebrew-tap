@@ -52,50 +52,84 @@ class FormulaUpdater
   def update_formula_content(content, version, release, formula_path)
     case File.basename(formula_path)
     when 'quarto-prerelease.rb'
-      asset = release.assets.find { |a| a.name.end_with?('macos.pkg') }
-      raise "Could not find macOS package" unless asset
-      new_sha = calculate_sha256(asset.browser_download_url)
-      content
-        .sub(/version "[^"]+"/, "version \"#{version}\"")
-        .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
-        .sub(
-          /^\s*url.*$/,
-          "  url \"#{asset.browser_download_url}\""
-        )
-    
+      update_quarto_prerelease(content, version, release)
     when 'searchlink.rb'
-      asset = release.assets.find { |a| a.name.end_with?('.zip') }
-      raise "Could not find zip file" unless asset
-      new_sha = calculate_sha256(asset.browser_download_url)
-      content
-        .sub(/version "[^"]+"/, "version \"#{version}\"")
-        .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
-        .sub(
-          /url "[^"]+"/,
-          "url \"#{asset.browser_download_url}\""
-        )
-    
+      update_searchlink(content, version, release)
     when 'bookget.rb'
-      # Only handle ARM version now
-      arm_asset = release.assets.find { |a| a.name.include?('macOS-arm64.tar.bz2') }
-      raise "Could not find ARM asset" unless arm_asset
-      
-      arm_sha = calculate_sha256(arm_asset.browser_download_url)
-      
-      content
-        .sub(/version "[^"]+"/, "version \"#{version}\"")
-        .sub(/if Hardware::CPU\.intel\?.*?end/m) do |match|
-          "on_arm do\n" \
-          "    url \"#{arm_asset.browser_download_url}\"\n" \
-          "    sha256 \"#{arm_sha}\"\n" \
-          "  end\n\n" \
-          "  on_intel do\n" \
-          "    odie \"bookget only releases for Apple Silicon Macs, you can build it from source on Intel Macs\"\n" \
-          "  end"
-        end
+      update_bookget(content, version, release)
     else
       raise "Unknown formula/cask: #{formula_path}"
     end
+  end
+
+  def update_quarto_prerelease(content, version, release)
+    asset = release.assets.find { |a| a.name.end_with?('macos.pkg') }
+    raise "Could not find macOS package" unless asset
+    new_sha = calculate_sha256(asset.browser_download_url)
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/sha256 (?::[^"]+|"[^"]+")/, "sha256 \"#{new_sha}\"")
+      .sub(
+        /^\s*url.*$/,
+        "  url \"#{asset.browser_download_url}\""
+      )
+  end
+
+  def update_searchlink(content, version, release)
+    asset = release.assets.find { |a| a.name.end_with?('.zip') }
+    raise "Could not find zip file" unless asset
+    new_sha = calculate_sha256(asset.browser_download_url)
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
+      .sub(
+        /url "[^"]+"/,
+        "url \"#{asset.browser_download_url}\""
+      )
+  end
+
+  def update_bookget(content, version, release)
+    # Find Mac assets (both Intel and ARM)
+    arm_asset = release.assets.find { |a| a.name == 'bookget-macos-arm64' }
+    intel_asset = release.assets.find { |a| a.name == 'bookget-macos' }
+    
+    # Verify assets exist
+    raise "Could not find ARM asset" unless arm_asset
+    raise "Could not find Intel asset" unless intel_asset
+    
+    # Calculate SHA256 checksums
+    arm_sha = calculate_sha256(arm_asset.browser_download_url)
+    intel_sha = calculate_sha256(intel_asset.browser_download_url)
+    
+    # Create updated install method
+    install_method = <<-RUBY
+  def install
+    if Hardware::CPU.arm?
+      bin.install "bookget-macos-arm64" => "bookget"
+    else
+      bin.install "bookget-macos" => "bookget"
+    end
+  end
+    RUBY
+    
+    # Update formula content
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/on_arm do.*?end/m, <<-RUBY
+  on_arm do
+    url "#{arm_asset.browser_download_url}"
+    sha256 "#{arm_sha}"
+  end
+      RUBY
+      )
+      .sub(/on_intel do.*?end/m, <<-RUBY
+  on_intel do
+    url "#{intel_asset.browser_download_url}"
+    sha256 "#{intel_sha}"
+  end
+      RUBY
+      )
+      .sub(/def install.*?end/m, install_method.strip)
   end
 
   def commit_update(file_path, content, version)
