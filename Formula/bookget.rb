@@ -5,25 +5,31 @@ class Bookget < Formula
   desc "数字古籍图书下载工具"
   homepage "https://github.com/deweizhu/bookget"
   license "GPL-3.0"
-  version "25.0501"
+  version "25.0507"
 
   livecheck do
     url :url
     strategy :github_latest
   end
 
-  on_arm do
-    url "https://github.com/deweizhu/bookget/releases/download/25.0213/bookget-25.0213.macOS-arm64.tar.bz2"
-    sha256 "4d4ed9a965e111a07d4378a148645cef5c3f2ac09573ec00e5ed913955d00348"
+    on_arm do
+    url "https://github.com/deweizhu/bookget/releases/download/v25.0507/bookget-macos-arm64"
+    sha256 "c39939f3ea91e51b06c1515f1ca1f3fbcaa9cc75e638709e0d3b61934c2d381c"
   end
 
-  on_intel do
-    odie "bookget is only supported on Apple Silicon (ARM) Macs, you can build it from source on Intel Macs"
+
+    on_intel do
+    url "https://github.com/deweizhu/bookget/releases/download/v25.0507/bookget-macos"
+    sha256 "6a0a59cc0c5b8957af4319fca51a40758433e2b629b17675c0b581953eea3139"
   end
+
 
   def install
-    bin.install "bookget"
-    bin.install "dezoomify-rs" # Also install `dezoomify-rs`
+    if Hardware::CPU.arm?
+      bin.install "bookget-macos-arm64" => "bookget"
+    else
+      bin.install "bookget-macos" => "bookget"
+    end
   end
 
   test do
