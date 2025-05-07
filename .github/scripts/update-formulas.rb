@@ -101,34 +101,32 @@ class FormulaUpdater
     arm_sha = calculate_sha256(arm_asset.browser_download_url)
     intel_sha = calculate_sha256(intel_asset.browser_download_url)
     
-    # Create updated install method
+    # Create updated install method with optimized if/else
     install_method = <<-RUBY
   def install
-    if Hardware::CPU.arm?
-      bin.install "bookget-macos-arm64" => "bookget"
-    else
-      bin.install "bookget-macos" => "bookget"
-    end
+    bin.install Hardware::CPU.arm? ? "bookget-macos-arm64" : "bookget-macos" => "bookget"
   end
     RUBY
     
-    # Update formula content
-    content
-      .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/on_arm do.*?end/m, <<-RUBY
+    # Update formula content with proper spacing
+    arm_block = <<-RUBY
   on_arm do
     url "#{arm_asset.browser_download_url}"
     sha256 "#{arm_sha}"
   end
-      RUBY
-      )
-      .sub(/on_intel do.*?end/m, <<-RUBY
+RUBY
+
+    intel_block = <<-RUBY
   on_intel do
     url "#{intel_asset.browser_download_url}"
     sha256 "#{intel_sha}"
   end
-      RUBY
-      )
+RUBY
+    
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/on_arm do.*?end/m, arm_block)
+      .sub(/on_intel do.*?end/m, intel_block)
       .sub(/def install.*?end/m, install_method.strip)
   end
 
