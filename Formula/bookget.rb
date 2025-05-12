@@ -5,24 +5,26 @@ class Bookget < Formula
   desc "数字古籍图书下载工具"
   homepage "https://github.com/deweizhu/bookget"
   license "GPL-3.0"
-  version "25.0508"
+  version "25.0512"
 
   livecheck do
     url :url
     strategy :github_latest
   end
 
-      on_arm do
-    url "https://github.com/deweizhu/bookget/releases/download/v25.0508/bookget-macos-arm64"
-    sha256 "8305087fec96540433ad39f1008fb43a47627f439aea5b1cc7d5200e3fcdb08b"
+        on_arm do
+    url "https://github.com/deweizhu/bookget/releases/download/v25.0512/bookget-macos-arm64"
+    sha256 "b00f4c68f01e109c51de5a02e7c55454aa2777529d1b345b24943ba77f4eaa15"
   end
 
 
 
-      on_intel do
-    url "https://github.com/deweizhu/bookget/releases/download/v25.0508/bookget-macos"
-    sha256 "aa345fa2229312076685b717e26cd8b60e18feee488e91168f792f3b5c75a3f0"
+
+        on_intel do
+    url "https://github.com/deweizhu/bookget/releases/download/v25.0512/bookget-macos"
+    sha256 "3112e760b53026993d6ff42efce7b98b335b844495765a192f9f2bc58ddd2a56"
   end
+
 
 
 
