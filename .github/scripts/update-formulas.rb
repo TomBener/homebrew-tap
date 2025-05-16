@@ -101,34 +101,25 @@ class FormulaUpdater
     arm_sha = calculate_sha256(arm_asset.browser_download_url)
     intel_sha = calculate_sha256(intel_asset.browser_download_url)
     
-    # Create updated install method with proper formatting
-    install_method = <<-RUBY
-  def install
+    # Create blocks as plain strings without Ruby evaluation
+    install_block = '  def install
     bin.install Hardware::CPU.arm? ? "bookget-macos-arm64" : "bookget-macos" => "bookget"
-  end
-RUBY
+  end'
     
-    # Update formula content with proper spacing
-    arm_block = <<-RUBY
-  on_arm do
+    arm_block = %Q{  on_arm do
     url "#{arm_asset.browser_download_url}"
     sha256 "#{arm_sha}"
-  end
-RUBY
+  end}
 
-    intel_block = <<-RUBY
-  on_intel do
+    intel_block = %Q{  on_intel do
     url "#{intel_asset.browser_download_url}"
     sha256 "#{intel_sha}"
-  end
-RUBY
+  end}
 
-    test_block = <<-RUBY
-  test do
+    test_block = '  test do
     # The test will run `bookget -v` to verify the installation
     system "#{bin}/bookget", "-v"
-  end
-RUBY
+  end'
     
     # First fix the double end issue by cleaning up the content
     cleaned_content = content.gsub(/^(\s+end\s*$\s+)+end\s*$/, "\n  end\n")
@@ -136,10 +127,10 @@ RUBY
     # Fix indentation issues by ensuring blocks start with proper indentation
     updated_content = cleaned_content
       .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/^\s*on_arm do.*?end/m) { |match| "\n" + arm_block.strip }
-      .sub(/^\s*on_intel do.*?end/m) { |match| "\n" + intel_block.strip }
-      .sub(/def install.*?end(\s*end)?/m, install_method.strip)
-      .sub(/test do.*?end(\s*end)?/m, test_block.strip)
+      .sub(/^\s*on_arm do.*?end/m) { |match| "\n" + arm_block }
+      .sub(/^\s*on_intel do.*?end/m) { |match| "\n" + intel_block }
+      .sub(/def install.*?end(\s*end)?/m, install_block)
+      .sub(/test do.*?end(\s*end)?/m, test_block)
     
     # Fix any multiple consecutive empty lines and ensure proper spacing before blocks
     updated_content = updated_content
