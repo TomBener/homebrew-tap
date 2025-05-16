@@ -123,11 +123,16 @@ RUBY
   end
 RUBY
     
-    content
+    updated_content = content
       .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/on_arm do.*?end/m, arm_block)
-      .sub(/on_intel do.*?end/m, intel_block)
+      .sub(/on_arm do.*?end/m, arm_block.strip)
+      .sub(/on_intel do.*?end/m, intel_block.strip)
       .sub(/def install.*?end/m, install_method.strip)
+    
+    # Fix any multiple consecutive empty lines
+    updated_content.gsub!(/\n{3,}/, "\n\n")
+    
+    updated_content
   end
 
   def commit_update(file_path, content, version)
