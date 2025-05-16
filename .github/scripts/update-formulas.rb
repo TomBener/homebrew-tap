@@ -101,12 +101,12 @@ class FormulaUpdater
     arm_sha = calculate_sha256(arm_asset.browser_download_url)
     intel_sha = calculate_sha256(intel_asset.browser_download_url)
     
-    # Create updated install method with optimized if/else
+    # Create updated install method with proper formatting
     install_method = <<-RUBY
   def install
     bin.install Hardware::CPU.arm? ? "bookget-macos-arm64" : "bookget-macos" => "bookget"
   end
-    RUBY
+RUBY
     
     # Update formula content with proper spacing
     arm_block = <<-RUBY
@@ -123,11 +123,15 @@ RUBY
   end
 RUBY
     
-    updated_content = content
+    # First fix the double end issue by cleaning up the content
+    cleaned_content = content.gsub(/^(\s+end\s*$\s+)+end\s*$/, "\n  end\n")
+    
+    # Fix indentation issues by using regex that matches regardless of leading whitespace
+    updated_content = cleaned_content
       .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/on_arm do.*?end/m, arm_block.strip)
-      .sub(/on_intel do.*?end/m, intel_block.strip)
-      .sub(/def install.*?end/m, install_method.strip)
+      .sub(/^\s*on_arm do.*?end/m, arm_block.strip)
+      .sub(/^\s*on_intel do.*?end/m, intel_block.strip)
+      .sub(/def install.*?end(\s*end)?/m, install_method.strip)
     
     # Fix any multiple consecutive empty lines
     updated_content.gsub!(/\n{3,}/, "\n\n")
