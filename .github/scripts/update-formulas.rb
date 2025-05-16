@@ -122,6 +122,13 @@ RUBY
     sha256 "#{intel_sha}"
   end
 RUBY
+
+    test_block = <<-RUBY
+  test do
+    # The test will run `bookget -v` to verify the installation
+    system "#{bin}/bookget", "-v"
+  end
+RUBY
     
     # First fix the double end issue by cleaning up the content
     cleaned_content = content.gsub(/^(\s+end\s*$\s+)+end\s*$/, "\n  end\n")
@@ -132,11 +139,15 @@ RUBY
       .sub(/^\s*on_arm do.*?end/m) { |match| "\n" + arm_block.strip }
       .sub(/^\s*on_intel do.*?end/m) { |match| "\n" + intel_block.strip }
       .sub(/def install.*?end(\s*end)?/m, install_method.strip)
+      .sub(/test do.*?end(\s*end)?/m, test_block.strip)
     
     # Fix any multiple consecutive empty lines and ensure proper spacing before blocks
-    updated_content
+    updated_content = updated_content
       .gsub(/\n{3,}/, "\n\n")
       .gsub(/^on_(arm|intel)/, '  on_\1')  # Ensure 2 spaces before on_arm and on_intel
+      .gsub(/\s+\z/, "\nend\n")  # Ensure single newline before final end and after
+    
+    updated_content
   end
 
   def commit_update(file_path, content, version)
