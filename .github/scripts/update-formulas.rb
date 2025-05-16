@@ -126,17 +126,17 @@ RUBY
     # First fix the double end issue by cleaning up the content
     cleaned_content = content.gsub(/^(\s+end\s*$\s+)+end\s*$/, "\n  end\n")
     
-    # Fix indentation issues by using regex that matches regardless of leading whitespace
+    # Fix indentation issues by ensuring blocks start with proper indentation
     updated_content = cleaned_content
       .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/^\s*on_arm do.*?end/m, arm_block.strip)
-      .sub(/^\s*on_intel do.*?end/m, intel_block.strip)
+      .sub(/^\s*on_arm do.*?end/m) { |match| "\n" + arm_block.strip }
+      .sub(/^\s*on_intel do.*?end/m) { |match| "\n" + intel_block.strip }
       .sub(/def install.*?end(\s*end)?/m, install_method.strip)
     
-    # Fix any multiple consecutive empty lines
-    updated_content.gsub!(/\n{3,}/, "\n\n")
-    
+    # Fix any multiple consecutive empty lines and ensure proper spacing before blocks
     updated_content
+      .gsub(/\n{3,}/, "\n\n")
+      .gsub(/^on_(arm|intel)/, '  on_\1')  # Ensure 2 spaces before on_arm and on_intel
   end
 
   def commit_update(file_path, content, version)
