@@ -317,6 +317,8 @@ cask "font-fzkai-z03"
 cask "font-fzshusong-z01"
 cask "font-fzxiaobiaosong-b05"
 cask "font-fzxiheii-z08"
+cask "font-fangsong-gb2312"
+cask "font-kaiti-gb2312"
 # cask "font-hanamina"
 
 # Fonts for Japanese
