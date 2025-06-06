@@ -355,11 +355,11 @@ mas "Obsidian Web Clipper", id: 6720708363
 mas "Whisper Transcription", id: 1668083311
 mas "PDFgear", id: 6469021132
 mas "Readest", id: 6738622779
+mas "Command X", id: 6448461551
 # mas "OpenCat", id: 6445999201
 # mas "Googly Eyes", id: 6743048714
 # mas "Infuse", id: 1136220934
 # mas "Xcode", id: 497799835
-# mas "Command X", id: 6448461551
 # mas "OrbitRing Launcher", id: 6740730747
 # mas "Velja", id: 1607635845
 # mas "WhatFont", id: 1437138382
