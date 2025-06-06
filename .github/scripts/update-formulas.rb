@@ -105,42 +105,23 @@ class FormulaUpdater
     arm_sha = calculate_sha256(arm_asset.browser_download_url)
     intel_sha = calculate_sha256(intel_asset.browser_download_url)
     
-    # Create blocks as plain strings without Ruby evaluation
-    install_block = '  def install
-    bin.install Hardware::CPU.arm? ? "bookget-macos-arm64" : "bookget-macos" => "bookget"
-  end'
+    # Update version first
+    updated_content = content.sub(/version "[^"]+"/, "version \"#{version}\"")
     
-    arm_block = %Q{  on_arm do
-    url "#{arm_asset.browser_download_url}"
-    sha256 "#{arm_sha}"
-  end}
-
-    intel_block = %Q{  on_intel do
-    url "#{intel_asset.browser_download_url}"
-    sha256 "#{intel_sha}"
-  end}
-
-    test_block = '  test do
-    # The test will run `bookget -v` to verify the installation
-    system "#{bin}/bookget", "-v"
-  end'
+    # Update on_arm block
+    updated_content = updated_content.sub(/on_arm do.*?end/m) do
+      "on_arm do\n    url \"#{arm_asset.browser_download_url}\"\n    sha256 \"#{arm_sha}\"\n  end"
+    end
     
-    # First fix the double end issue by cleaning up the content
-    cleaned_content = content.gsub(/^(\s+end\s*$\s+)+end\s*$/, "\n  end\n")
+    # Update on_intel block  
+    updated_content = updated_content.sub(/on_intel do.*?end/m) do
+      "on_intel do\n    url \"#{intel_asset.browser_download_url}\"\n    sha256 \"#{intel_sha}\"\n  end"
+    end
     
-    # Fix indentation issues by ensuring blocks start with proper indentation
-    updated_content = cleaned_content
-      .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/^\s*on_arm do.*?end/m) { |match| "\n" + arm_block }
-      .sub(/^\s*on_intel do.*?end/m) { |match| "\n" + intel_block }
-      .sub(/def install.*?end(\s*end)?/m, install_block)
-      .sub(/test do.*?end(\s*end)?/m, test_block)
-    
-    # Fix any multiple consecutive empty lines and ensure proper spacing before blocks
+    # Ensure proper indentation for def install and test blocks (they should already be correct)
     updated_content = updated_content
-      .gsub(/\n{3,}/, "\n\n")
-      .gsub(/^on_(arm|intel)/, '  on_\1')  # Ensure 2 spaces before on_arm and on_intel
-      .gsub(/\s+\z/, "\nend\n")  # Ensure single newline before final end and after
+      .gsub(/^\s{8,}(def install|test do)/, '  \1')  # Fix over-indented blocks
+      .gsub(/\n{3,}/, "\n\n")  # Remove excessive empty lines
     
     updated_content
   end
