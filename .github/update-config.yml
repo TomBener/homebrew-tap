@@ -12,4 +12,16 @@ formulas:
   bookget:
     type: github
     repo: deweizhu/bookget
-    file: Formula/bookget.rb 
+    file: Formula/bookget.rb
+
+  font-xiaolai:
+    type: github
+    repo: lxgw/kose-font
+    file: Casks/font-xiaolai.rb
+    asset_name: Xiaolai-Regular.ttf
+    
+  font-xiaolai-mono:
+    type: github
+    repo: lxgw/kose-font
+    file: Casks/font-xiaolai-mono.rb
+    asset_name: XiaolaiMono-Regular.ttf 
