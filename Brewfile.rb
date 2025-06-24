@@ -28,7 +28,6 @@ tap "homebrew/bundle"
 tap "jez/formulae"  # pandoc-sidenote
 tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
-tap "krtirtho/apps" # spotube
 tap "tombener/tap"
 tap "timescam/tap" # theboringnotch and trae
 # tap "ttscoff/thelab" # gather-cli
@@ -231,7 +230,6 @@ cask "quarto-prerelease"
 # Intel Mac
     # sudo ln -s /Applications/quarto/bin/tools/x86_64/typst  /usr/local/bin/typst
 # cask "bleunlock"
-cask "spotube"
 cask "searchlink"
 cask "markdown-service-tools"
 cask "netnewswire"
@@ -257,7 +255,7 @@ cask "claude"
 cask "markedit"
 cask "ollama"
 cask "pearcleaner"
-cask "tailscale"
+cask "tailscale-app"
 # cask "squirrel"
 # cask "bitwarden"
 # cask "tickeys"
@@ -268,7 +266,7 @@ cask "tailscale"
 # cask "tor-browser"
 # cask "microsoft-edge"
 # cask "orion"
-# cask "marked"
+# cask "marked-app"
 # cask "typora"
 # cask "bike"
 # cask "koodo-reader"
@@ -357,6 +355,7 @@ mas "Whisper Transcription", id: 1668083311
 mas "PDFgear", id: 6469021132
 mas "Readest", id: 6738622779
 mas "Command X", id: 6448461551
+mas "Spokenly", id: 6740315592
 # mas "OpenCat", id: 6445999201
 # mas "Googly Eyes", id: 6743048714
 # mas "Infuse", id: 1136220934
