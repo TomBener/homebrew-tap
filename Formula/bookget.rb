@@ -11,12 +11,12 @@ class Bookget < Formula
 
   on_arm do
     url "https://github.com/deweizhu/bookget/releases/download/v25.0701/bookget-macos-arm64"
-    sha256 "1f92fdb2290ff4f29398bd1c0a240c82a08a2eb09cb31c2f0ce85590d87d3f61"
+    sha256 "7e1fdfc156c000fd02adc6a8cedeb9c9336ac02b3ea7971e00700e4eee3eea7d"
   end
 
   on_intel do
     url "https://github.com/deweizhu/bookget/releases/download/v25.0701/bookget-macos"
-    sha256 "cf5cb247a0c68401d9c48f76a484d771d4d40ab2d67adfbd1a74a5a34929c353"
+    sha256 "4ed60aeeb0c930b0e9adfb9063c0461bad16eb98dac9eef52d8b7a0469145913"
   end
   def install
     bin.install Hardware::CPU.arm? ? "bookget-macos-arm64" : "bookget-macos" => "bookget"
