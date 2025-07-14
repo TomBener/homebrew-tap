@@ -1,5 +1,5 @@
 # The very first step for re-installing macOS is downloading & installing Surge or Clash Verge Rev manually to proxy the network.
-# Surge: https://dl.nssurge.com/mac/v5/Surge-latest.zip
+# Surge: https://dl.nssurge.com/mac/v6/Surge-latest.zip
 # Clash Verge Rev: https://www.clashverge.dev/install.html#__tabbed_1_3
 
 # Export
