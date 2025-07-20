@@ -1,8 +1,8 @@
 cask "font-xiaolai" do
-  version "3.122"
-  sha256 "5495088a6b74d7c01ab55188417ec396cb8b054b8f15193b54213c0c0560dd17"
+  version "3.123"
+  sha256 "42f850f540a8a94969b5c53d3218172c229fdb18ceba49ce9ae104c7d0fe365d"
 
-  url "https://github.com/lxgw/kose-font/releases/download/v3.122/Xiaolai-Regular.ttf", verified: "github.com/lxgw/kose-font/"
+  url "https://github.com/lxgw/kose-font/releases/download/v3.123/Xiaolai-Regular.ttf", verified: "github.com/lxgw/kose-font/"
   name "Xiaolai"
   name "小赖字体"
   desc "Chinese handwriting font derived from SetoFont"
