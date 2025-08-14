@@ -18,9 +18,12 @@
 # /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 
 # Install Homebrew Bundle
+# ‼️ Review all of these formulae and casks before running the command
+
 # 1. Copy Shell Export Command in Surge or Clash Verge Rev, paste into Terminal and hit Enter.
 # 2. `brew bundle --file ~/Library/Mobile\ Documents/com~apple~CloudDocs/Install-macOS/Homebrew/Brewfile.rb`: Install and upgrade (by default) all dependencies from `Brewfile.rb`.
 # `brew bundle --help`: Show help messages.
+
 
 # Third-party repositories
 tap "homebrew/bundle"
@@ -59,6 +62,7 @@ brew "tree"
 brew "mas"
 brew "pyenv"
 brew "uv"
+# brew "fnm"
 brew "node"
 brew "pnpm"
 # brew "tag"
@@ -129,6 +133,8 @@ brew "pngpaste"
 brew "bookget"
 brew "pdfcpu"
 brew "mysql"
+brew "gemini-cli"
+brew "codex"
 # brew "macos-trash"
 # brew "rmtrash"
 # brew "switchaudio-osx"
@@ -246,9 +252,10 @@ cask "inkscape"
 cask "latest"
 cask "jordanbaird-ice"
 cask "theboringnotch"
-cask "superwhisper"
+cask "zed"
+# cask "macwhisper"
+# cask "superwhisper"
 # cask "gitbutler"
-# cask "zed"
 # cask "zoom"
 # cask "tencent-meeting"
 cask "adobe-acrobat-pro"
@@ -256,6 +263,9 @@ cask "adobe-acrobat-pro"
 # cask "coconutbattery"
 cask "chatgpt"
 cask "claude"
+cask "claude-code"
+cask "conductor"
+cask "cursor-cli"
 cask "markedit"
 cask "ollama"
 cask "pearcleaner"
@@ -355,11 +365,11 @@ mas "Vimkey", id: 1585682577
 mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
 mas "Obsidian Web Clipper", id: 6720708363
-mas "Whisper Transcription", id: 1668083311
-mas "PDFgear", id: 6469021132
-mas "Readest", id: 6738622779
 mas "Command X", id: 6448461551
 mas "Spokenly", id: 6740315592
+# mas "Whisper Transcription", id: 1668083311
+# mas "PDFgear", id: 6469021132
+# mas "Readest", id: 6738622779
 # mas "OpenCat", id: 6445999201
 # mas "Googly Eyes", id: 6743048714
 # mas "Infuse", id: 1136220934
