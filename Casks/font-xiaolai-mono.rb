@@ -1,8 +1,8 @@
 cask "font-xiaolai-mono" do
-  version "3.125"
-  sha256 "fa28b6d38d44686c2927f604d10951c6f6c8cf4979e877508b7bf624b5c36e21"
+  version "3.126"
+  sha256 "802b658db492e02ae5b659f5b56d7d4ef8f77609515bdcc82f462ae912888c33"
 
-  url "https://github.com/lxgw/kose-font/releases/download/v3.125/XiaolaiMono-Regular.ttf", verified: "github.com/lxgw/kose-font/"
+  url "https://github.com/lxgw/kose-font/releases/download/v3.126/XiaolaiMono-Regular.ttf", verified: "github.com/lxgw/kose-font/"
   name "Xiaolai Mono"
   name "小赖字体等宽"
   desc "Chinese handwriting monospace font derived from SetoFont"
