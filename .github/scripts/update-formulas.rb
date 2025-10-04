@@ -61,6 +61,8 @@ class FormulaUpdater
       update_xiaolai_font(content, version, release, 'Xiaolai-Regular.ttf')
     when 'font-xiaolai-mono.rb'
       update_xiaolai_font(content, version, release, 'XiaolaiMono-Regular.ttf')
+    when 'maccalendar.rb'
+      update_maccalendar(content, version, release)
     else
       raise "Unknown formula/cask: #{formula_path}"
     end
@@ -129,6 +131,19 @@ class FormulaUpdater
   def update_xiaolai_font(content, version, release, font_name)
     asset = release.assets.find { |a| a.name == font_name }
     raise "Could not find font file: #{font_name}" unless asset
+    new_sha = calculate_sha256(asset.browser_download_url)
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
+      .sub(
+        /url "[^"]+"/,
+        "url \"#{asset.browser_download_url}\""
+      )
+  end
+
+  def update_maccalendar(content, version, release)
+    asset = release.assets.find { |a| a.name == 'MacCalendar.zip' }
+    raise "Could not find MacCalendar.zip" unless asset
     new_sha = calculate_sha256(asset.browser_download_url)
     content
       .sub(/version "[^"]+"/, "version \"#{version}\"")

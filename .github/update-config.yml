@@ -24,4 +24,10 @@ formulas:
     type: github
     repo: lxgw/kose-font
     file: Casks/font-xiaolai-mono.rb
-    asset_name: XiaolaiMono-Regular.ttf 
+    asset_name: XiaolaiMono-Regular.ttf
+    
+  maccalendar:
+    type: github
+    repo: bylinxx/MacCalendar
+    file: Casks/maccalendar.rb
+    asset_name: MacCalendar.zip 
