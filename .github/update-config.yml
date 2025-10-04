@@ -30,4 +30,4 @@ formulas:
     type: github
     repo: bylinxx/MacCalendar
     file: Casks/maccalendar.rb
-    asset_name: MacCalendar.zip 
+    asset_pattern: MacCalendar_.*\.dmg 

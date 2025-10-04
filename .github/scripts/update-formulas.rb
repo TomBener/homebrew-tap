@@ -142,8 +142,8 @@ class FormulaUpdater
   end
 
   def update_maccalendar(content, version, release)
-    asset = release.assets.find { |a| a.name == 'MacCalendar.zip' }
-    raise "Could not find MacCalendar.zip" unless asset
+    asset = release.assets.find { |a| a.name.match?(/MacCalendar_.*\.dmg/) }
+    raise "Could not find MacCalendar DMG file" unless asset
     new_sha = calculate_sha256(asset.browser_download_url)
     content
       .sub(/version "[^"]+"/, "version \"#{version}\"")
