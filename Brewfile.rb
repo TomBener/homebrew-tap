@@ -315,6 +315,7 @@ cask "font-roboto-slab"
 cask "font-noto-color-emoji"
 cask "font-geist"
 cask "font-geist-mono"
+cask "font-computer-modern"
 # cask "font-mona-sans"
 # cask "font-hubot-sans"
 
