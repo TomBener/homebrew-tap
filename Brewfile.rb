@@ -372,8 +372,8 @@ mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Command X", id: 6448461551
-mas "Spokenly", id: 6740315592
 mas "Folder Quick Look", id: 6753110395
+# mas "Spokenly", id: 6740315592
 # mas "Whisper Transcription", id: 1668083311
 # mas "PDFgear", id: 6469021132
 # mas "Readest", id: 6738622779
