@@ -350,6 +350,7 @@ cask "font-noto-emoji"
 # Apps from Mac App Store
 # U.S. account
 # mas "1Password for Safari", id: 1569813296
+mas "Shadowrocket", id: 932747118
 mas "Bob", id: 1630034110
 mas "Drafts", id: 1435957248
 mas "Craft", id: 1487937127
