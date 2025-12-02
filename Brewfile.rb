@@ -376,6 +376,7 @@ mas "Obsidian Web Clipper", id: 6720708363
 mas "Command X", id: 6448461551
 mas "Folder Quick Look", id: 6753110395
 mas "MCP Dock", id: 6748305262
+mas "Equinox", id: 1591510203
 # mas "Spokenly", id: 6740315592
 # mas "Whisper Transcription", id: 1668083311
 # mas "PDFgear", id: 6469021132
