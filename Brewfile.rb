@@ -343,6 +343,7 @@ cask "font-fzxiheii-z08"
 cask "font-fangsong-gb2312"
 cask "font-kaiti-gb2312"
 cask "font-smiley-sans"
+cask "font-tex-gyre-schola"
 # cask "font-hanamina"
 
 # Fonts for Japanese
