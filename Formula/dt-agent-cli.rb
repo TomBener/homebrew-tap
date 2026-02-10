@@ -15,6 +15,7 @@ class DtAgentCli < Formula
 
   def install
     system "npm", "install", "--omit=dev", *std_npm_args
+    bin.install_symlink libexec/"bin/dt"
   end
 
   test do
