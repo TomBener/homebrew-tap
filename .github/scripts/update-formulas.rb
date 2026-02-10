@@ -57,6 +57,8 @@ class FormulaUpdater
       update_searchlink(content, version, release)
     when 'bookget.rb'
       update_bookget(content, version, release)
+    when 'dt-agent-cli.rb'
+      update_dt_agent_cli(content, version, release)
     when 'font-xiaolai.rb'
       update_xiaolai_font(content, version, release, 'Xiaolai-Regular.ttf')
     when 'font-xiaolai-mono.rb'
@@ -126,6 +128,17 @@ class FormulaUpdater
       .gsub(/\n{3,}/, "\n\n")  # Remove excessive empty lines
     
     updated_content
+  end
+
+  def update_dt_agent_cli(content, version, release)
+    asset = release.assets.find { |a| a.name.match?(/^dt-agent-cli-.*\.tgz$/) }
+    raise "Could not find dt-agent-cli npm package" unless asset
+
+    new_sha = calculate_sha256(asset.browser_download_url)
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/url "[^"]+"/, "url \"#{asset.browser_download_url}\"")
+      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
   end
 
   def update_xiaolai_font(content, version, release, font_name)

@@ -14,6 +14,11 @@ formulas:
     repo: deweizhu/bookget
     file: Formula/bookget.rb
 
+  dt-agent-cli:
+    type: github
+    repo: TomBener/dt-agent-cli
+    file: Formula/dt-agent-cli.rb
+
   font-xiaolai:
     type: github
     repo: lxgw/kose-font
