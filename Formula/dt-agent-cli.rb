@@ -14,9 +14,7 @@ class DtAgentCli < Formula
   depends_on "node"
 
   def install
-    cd "package" do
-      system "npm", "install", "--omit=dev", *std_npm_args
-    end
+    system "npm", "install", "--omit=dev", *std_npm_args
   end
 
   test do
