@@ -14,10 +14,10 @@ formulas:
     repo: deweizhu/bookget
     file: Formula/bookget.rb
 
-  dt-agent-cli:
+  dtx:
     type: github
-    repo: TomBener/dt-agent-cli
-    file: Formula/dt-agent-cli.rb
+    repo: TomBener/dtx
+    file: Formula/dtx.rb
 
   font-xiaolai:
     type: github
