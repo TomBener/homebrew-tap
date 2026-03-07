@@ -15,10 +15,10 @@ class Dtx < Formula
 
   def install
     system "npm", "install", "--omit=dev", *std_npm_args
-    bin.install_symlink libexec/"bin/dt"
+    bin.install_symlink libexec/"bin/dtx"
   end
 
   test do
-    assert_match "Usage:", shell_output("#{bin}/dt help")
+    assert_match "Usage:", shell_output("#{bin}/dtx help")
   end
 end
