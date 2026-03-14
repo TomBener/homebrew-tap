@@ -1,9 +1,9 @@
 # Formula code for installing the prerelease of Quarto
 
 cask "quarto-prerelease" do
-  version "1.9.34"
-  sha256 "aab73fa825ff1a1f1b39abbf6d4ba77b05df897dcb885636cadf7cc5bc3d6677"
-  url "https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.34/quarto-1.9.34-macos.pkg"
+  version "1.9.35"
+  sha256 "e52370783911592ec177a9a30534aa787f3f542dc65375155a820674ec85b8d8"
+  url "https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.35/quarto-1.9.35-macos.pkg"
   name "quarto"
   desc "Scientific and technical publishing system built on Pandoc"
   homepage "https://www.quarto.org"
