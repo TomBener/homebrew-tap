@@ -1,8 +1,8 @@
 cask "maccalendar" do
-  version "1.1.15"
-  sha256 "fed1a2aa18b28703ce54d89d2789f249dc19ee6dd01f11bd313fa43e771b6fd8"
+  version "1.1.16"
+  sha256 "59523e61fcac07864d550fa9929fe9c46a30364d64a6a0c4fba0878b35d34d35"
 
-  url "https://github.com/bylinxx/MacCalendar/releases/download/v1.1.15/MacCalendar_1.1.15.dmg"
+  url "https://github.com/bylinxx/MacCalendar/releases/download/v1.1.16/MacCalendar_1.1.16.dmg"
   name "MacCalendar"
   desc "macOS menu bar calendar app supporting Chinese lunar calendar, holidays, and system events"
   homepage "https://github.com/bylinxx/MacCalendar"
