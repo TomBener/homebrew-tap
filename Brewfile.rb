@@ -26,13 +26,12 @@
 
 
 # Third-party repositories
-tap "homebrew/bundle"
 # tap "homebrew/services"
-tap "jez/formulae"  # pandoc-sidenote
-tap "remove-bg/tap"  # removebg
+# tap "jez/formulae"  # pandoc-sidenote
+# tap "remove-bg/tap"  # removebg
 tap "wader/tap"  # fq
 tap "tombener/tap"
-tap "timescam/tap" # theboringnotch and trae
+# tap "timescam/tap" # theboringnotch and trae
 # tap "ttscoff/thelab" # gather-cli
 
 # Alternative CLI tools & Plugins for Zsh
@@ -55,8 +54,8 @@ brew "wget"
 # brew "pandoc"
 # `pandoc-crossref` depends on `pandoc`, so `pandoc` will be installed automatically
 brew "pandoc-crossref"
-brew "pandoc-sidenote"
-brew "pandoc-plot"
+# brew "pandoc-sidenote"
+# brew "pandoc-plot"
 brew "hugo"
 brew "tree"
 brew "mas"
@@ -80,9 +79,9 @@ brew "autocorrect"
 brew "fortune"
 brew "zbar"
 brew "rename"
-brew "shellcheck"
+# brew "shellcheck"
 brew "pwgen"
-brew "translate-shell"
+# brew "translate-shell"
 brew "onefetch"
 brew "fastfetch"
 brew "defaultbrowser"
@@ -96,7 +95,7 @@ brew "ripgrep"
 # brew "yadm"
 brew "qrencode"
 brew "rga"
-brew "removebg"
+# brew "removebg"
 brew "jq"
 brew "yq"
 brew "telnet"
@@ -166,7 +165,7 @@ cask "alfred"
 cask "raycast"
 cask "iterm2"
 cask "ghostty"
-cask "warp"
+# cask "warp"
 cask "karabiner-elements"
 cask "keyboard-maestro"
 # cask "logseq"
@@ -199,11 +198,11 @@ cask "textsoap-agent"
 # cask "termius"
 # cask "hookmark"
 # cask "manila"
-cask "pictogram"
+# cask "pictogram"
 cask "telegram"
 cask "zotero"
-cask "topnotch"
 cask "skim"
+# cask "topnotch"
 # cask "follow"
 # cask "rstudio"
 # cask "calibre"
@@ -218,12 +217,12 @@ cask "skim"
 # cask "cider"
 # cask "popmaker"
 cask "popclip"
-cask "bbedit"
+# cask "bbedit"
 # cask "launchbar"
 # cask "cherry-studio"
 # cask "chatwise"
-cask "pearcleaner"
-brew "r-lib/rig/rig" # R installation manager
+# cask "pearcleaner"
+cask "r-lib/rig/rig" # R installation manager
 # rig add release # Add the latest release
 cask "quarto-prerelease"
 # cask "quarto"
@@ -237,10 +236,10 @@ cask "1password-cli"
 # cask "heynote"
 # cask "picgo"
 cask "orbstack"
-cask "inkscape"
+# cask "inkscape"
 cask "latest"
-cask "jordanbaird-ice"
-cask "theboringnotch"
+# cask "jordanbaird-ice"
+# cask "theboringnotch"
 cask "zed"
 # cask "macwhisper"
 # cask "superwhisper"
@@ -252,21 +251,21 @@ cask "adobe-acrobat-pro"
 # cask "coconutbattery"
 cask "chatgpt"
 cask "codex"
+cask "codex-app"
 cask "claude"
 cask "claude-code"
-cask "farion1231/ccswitch/cc-switch"
+# cask "farion1231/ccswitch/cc-switch"
 cask "steipete/tap/codexbar"
-cask "nguyenphutrong/tap/quotio"
-cask "conductor"
-cask "productdevbook/tap/portkiller"
+# cask "nguyenphutrong/tap/quotio"
+# cask "conductor"
+# cask "productdevbook/tap/portkiller"
 # cask "cursor-cli"
 cask "markedit"
-cask "ollama"
-cask "pearcleaner"
+# cask "ollama"
 cask "tailscale-app"
-cask "lidanglesensor"
+# cask "lidanglesensor"
 cask "antigravity"
-cask "typeless"
+# cask "typeless"
 cask "discord"
 cask "battery"
 cask "shottr"
@@ -322,16 +321,16 @@ cask "font-noto-sans-cjk-sc"
 cask "font-lxgw-wenkai"
 cask "font-lxgw-neoxihei"
 cask "font-zhuque-fangsong"
-cask "font-maple"
+cask "font-maple-mono"
 cask "font-chenyuluoyan"
 cask "font-fandol"
 cask "font-sarasa-gothic"
-cask "font-fzfangsong-z02"
-cask "font-fzhei-b01"
-cask "font-fzkai-z03"
-cask "font-fzshusong-z01"
-cask "font-fzxiaobiaosong-b05"
-cask "font-fzxiheii-z08"
+# cask "font-fzfangsong-z02"
+# cask "font-fzhei-b01"
+# cask "font-fzkai-z03"
+# cask "font-fzshusong-z01"
+# cask "font-fzxiaobiaosong-b05"
+# cask "font-fzxiheii-z08"
 cask "font-fangsong-gb2312"
 cask "font-kaiti-gb2312"
 cask "font-smiley-sans"
@@ -363,17 +362,17 @@ mas "Noir", id: 1592917505
 mas "Microsoft Word", id: 462054704
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
-mas "SingleFile for Safari", id: 6444322545
-mas "Wayback Machine", id: 1472432422
+# mas "SingleFile for Safari", id: 6444322545
+# mas "Wayback Machine", id: 1472432422
 mas "Eudic", id: 434350458
-mas "Vimkey", id: 1585682577
+# mas "Vimkey", id: 1585682577
 mas "Hush Nag Blocker", id: 1544743900
 mas "Refined GitHub", id: 1519867270
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Command X", id: 6448461551
 mas "Folder Quick Look", id: 6753110395
-mas "MCP Dock", id: 6748305262
-mas "Equinox", id: 1591510203
+# mas "MCP Dock", id: 6748305262
+# mas "Equinox", id: 1591510203
 # mas "Spokenly", id: 6740315592
 # mas "Whisper Transcription", id: 1668083311
 # mas "PDFgear", id: 6469021132
@@ -400,11 +399,12 @@ mas "Equinox", id: 1591510203
 # mas "Windows App", id: 1295203466
 
 # China account
-mas "iA Writer", id: 775737590
-mas "iPreview", id: 1519213509
-mas "Pixelmator Pro", id: 1289583905
-mas "Vinegar", id: 1591303229
-mas "Dropover", id: 1355679052
+# mas "iA Writer", id: 775737590
+# mas "iPreview", id: 1519213509
+# mas "Pixelmator Pro", id: 1289583905
+# mas "Vinegar", id: 1591303229
+
+# mas "Dropover", id: 1355679052
 # mas "Gifski", id: 1351639930
 # mas "HazeOver", id: 430798174
 # mas "i-Picker", id: 1556461417
