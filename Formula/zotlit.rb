@@ -14,7 +14,7 @@ class Zotlit < Formula
   depends_on "openjdk"
 
   def install
-    system "npm", "install", "--omit=dev", *std_npm_args
+    system "npm", "install", "--omit=dev", *std_npm_args(ignore_scripts: false)
     (bin/"zotlit").write_env_script libexec/"bin/zotlit", Language::Java.overridable_java_home_env
   end
 
