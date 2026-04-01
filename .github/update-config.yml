@@ -19,6 +19,11 @@ formulas:
     repo: TomBener/dtx
     file: Formula/dtx.rb
 
+  zotlit:
+    type: github
+    repo: TomBener/zotlit
+    file: Formula/zotlit.rb
+
   font-xiaolai:
     type: github
     repo: lxgw/kose-font

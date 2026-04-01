@@ -59,6 +59,8 @@ class FormulaUpdater
       update_bookget(content, version, release)
     when 'dtx.rb'
       update_dtx(content, version, release)
+    when 'zotlit.rb'
+      update_zotlit(content, version, release)
     when 'font-xiaolai.rb'
       update_xiaolai_font(content, version, release, 'Xiaolai-Regular.ttf')
     when 'font-xiaolai-mono.rb'
@@ -133,6 +135,17 @@ class FormulaUpdater
   def update_dtx(content, version, release)
     asset = release.assets.find { |a| a.name.match?(/^dtx-.*\.tgz$/) }
     raise "Could not find dtx npm package" unless asset
+
+    new_sha = calculate_sha256(asset.browser_download_url)
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/url "[^"]+"/, "url \"#{asset.browser_download_url}\"")
+      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
+  end
+
+  def update_zotlit(content, version, release)
+    asset = release.assets.find { |a| a.name.match?(/^zotlit-.*\.tgz$/) }
+    raise "Could not find zotlit npm package" unless asset
 
     new_sha = calculate_sha256(asset.browser_download_url)
     content
