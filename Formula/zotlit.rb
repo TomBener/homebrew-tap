@@ -15,7 +15,7 @@ class Zotlit < Formula
 
   def install
     system "npm", "install", "--omit=dev", *std_npm_args
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
+    (bin/"zotlit").write_env_script libexec/"bin/zotlit", Language::Java.overridable_java_home_env
   end
 
   test do
