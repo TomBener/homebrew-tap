@@ -1,9 +1,9 @@
 class Dtx < Formula
   desc "DEVONthink CLI indexing and semantic retrieval"
   homepage "https://github.com/TomBener/dtx"
-  version "0.10.0"
-  url "https://github.com/TomBener/dtx/releases/download/v0.10.0/dtx-0.10.0.tgz"
-  sha256 "bc50784d8f9cb607c90482f96b7acf120360cc8788a7d17acaf87a2bc712a959"
+  version "0.10.1"
+  url "https://github.com/TomBener/dtx/releases/download/v0.10.1/dtx-0.10.1.tgz"
+  sha256 "c394f1af5b4cefaade35d2937b5404b37e6f4cebcfabe84a4d866529293cf167"
   license "MIT"
 
   livecheck do
