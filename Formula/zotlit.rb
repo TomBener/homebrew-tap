@@ -1,9 +1,9 @@
 class Zotlit < Formula
   desc "Zotero literature search CLI for AI agents"
   homepage "https://github.com/TomBener/zotlit"
-  version "0.10.0"
-  url "https://github.com/TomBener/zotlit/releases/download/v0.10.0/zotlit-0.10.0.tgz"
-  sha256 "b50f4e33bf69643217dcb462fef15e076912a75cfc2f7c4bc7c954e19931aec9"
+  version "0.10.3"
+  url "https://github.com/TomBener/zotlit/releases/download/v0.10.3/zotlit-0.10.3.tgz"
+  sha256 "7da572553afd30e51bf64732872dc6c9d713b59019039874db81dbb4ad5cc828"
 
   livecheck do
     url :stable
