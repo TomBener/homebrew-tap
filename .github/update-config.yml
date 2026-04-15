@@ -19,10 +19,10 @@ formulas:
     repo: TomBener/dtx
     file: Formula/dtx.rb
 
-  zotlit:
+  zotagent:
     type: github
-    repo: TomBener/zotlit
-    file: Formula/zotlit.rb
+    repo: TomBener/zotagent
+    file: Formula/zotagent.rb
 
   font-xiaolai:
     type: github
