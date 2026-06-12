@@ -7,7 +7,7 @@ cask "textsoap-agent" do
   desc "Companion app to integrate TextSoap with your favorite apps"
   homepage "https://textsoap.com"
 
-  depends_on macos: ">= :catalina"
+  depends_on macos: :catalina
 
   auto_updates true
 
