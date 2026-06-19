@@ -36,6 +36,12 @@ formulas:
     file: Casks/font-xiaolai-mono.rb
     asset_name: XiaolaiMono-Regular.ttf
     
+  shandianshuo:
+    type: github
+    repo: shandianshuo/shandianshuo-releases
+    file: Casks/shandianshuo.rb
+    asset_pattern: shandianshuo_.*_universal\.dmg
+
   maccalendar:
     type: github
     repo: bylinxx/MacCalendar

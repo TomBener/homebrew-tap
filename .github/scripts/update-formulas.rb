@@ -67,6 +67,8 @@ class FormulaUpdater
       update_xiaolai_font(content, version, release, 'XiaolaiMono-Regular.ttf')
     when 'maccalendar.rb'
       update_maccalendar(content, version, release)
+    when 'shandianshuo.rb'
+      update_shandianshuo(content, version, release)
     else
       raise "Unknown formula/cask: #{formula_path}"
     end
@@ -178,6 +180,16 @@ class FormulaUpdater
         /url "[^"]+"/,
         "url \"#{asset.browser_download_url}\""
       )
+  end
+
+  def update_shandianshuo(content, version, release)
+    asset = release.assets.find { |a| a.name.match?(/shandianshuo_.*_universal\.dmg/) }
+    raise "Could not find shandianshuo universal DMG file" unless asset
+    new_sha = calculate_sha256(asset.browser_download_url)
+    # URL is derived from version via interpolation, so only version + sha256 change
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
   end
 
   def commit_update(file_path, content, version)
