@@ -359,7 +359,7 @@ mas "Craft", id: 1487937127
 # mas "MD Clock", id: 1536358464
 # mas "PopClip", id: 445189367
 # mas "scite", id: 1551820111
-mas "Spark", id: 1176895641
+mas "Spark Mail", id: 6445813049
 mas "Noir", id: 1592917505
 # mas "Pages", id: 409201541
 # mas "Numbers", id: 409203825
