@@ -1,9 +1,9 @@
 class Zotagent < Formula
   desc "Zotero literature search CLI for AI agents"
   homepage "https://github.com/TomBener/zotagent"
-  version "0.42.0"
-  url "https://github.com/TomBener/zotagent/releases/download/v0.42.0/zotagent-0.42.0.tgz"
-  sha256 "187b593fc7288885710b35ef6a345509772b2198649743fa34e38876a09094dd"
+  version "2026.8.2"
+  url "https://github.com/TomBener/zotagent/releases/download/v2026.8.2/zotagent-2026.8.2.tgz"
+  sha256 "bca76e30649d3fb77bf8fbc4cffb772eb155bfd6ab90c2272ce5bc7677458563"
 
   livecheck do
     url :stable
