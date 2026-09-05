@@ -13,6 +13,8 @@ cask "quarto-prerelease" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   pkg "quarto-#{version}-macos.pkg"
 
   # Create a symlink for Typst

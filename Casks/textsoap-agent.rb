@@ -7,9 +7,8 @@ cask "textsoap-agent" do
   desc "Companion app to integrate TextSoap with your favorite apps"
   homepage "https://textsoap.com"
 
-  depends_on macos: :catalina
-
   auto_updates true
+  depends_on :macos
 
   preflight do
     unless system_command('ls', args: ['/Applications/textsoap9.app']).success?

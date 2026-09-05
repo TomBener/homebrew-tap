@@ -14,6 +14,8 @@ cask "cleanshotx" do
 
   # auto_updates true
 
+  depends_on :macos
+
   app "CleanShot X.app"
 
   uninstall quit: "pl.maketheweb.cleanshotx"

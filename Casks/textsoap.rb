@@ -7,9 +7,8 @@ cask "textsoap" do
   desc "Powerful text transformations with just a click"
   homepage "https://textsoap.com"
 
-  depends_on macos: :big_sur
-
   auto_updates true
+  depends_on :macos
 
   app "textsoap9.app"
 

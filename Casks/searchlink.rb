@@ -12,6 +12,8 @@ cask "searchlink" do
       strategy :github_latest
     end
 
+    depends_on :macos
+
     service "SearchLink Services/Preview URL.workflow"
     service "SearchLink Services/SearchLink File.workflow"
     service "SearchLink Services/SearchLink.workflow"

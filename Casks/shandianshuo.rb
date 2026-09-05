@@ -13,6 +13,8 @@ cask "shandianshuo" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "闪电说.app"
 
   uninstall quit: "cn.shandianshuo.desktop"
