@@ -21,7 +21,7 @@
 # ‼️ Review all of these formulae and casks before running the command
 
 # 1. Copy Shell Export Command in Surge or Clash Verge Rev, paste into Terminal and hit Enter.
-# 2. `brew bundle --file ~/Library/Mobile\ Documents/com~apple~CloudDocs/Install-macOS/Homebrew/Brewfile.rb`: Install and upgrade (by default) all dependencies from `Brewfile.rb`.
+# 2. `brew bundle --file ~/Library/Mobile\ Documents/com~apple~CloudDocs/Install-macOS/Homebrew/Brewfile`: Install and upgrade (by default) all dependencies from `Brewfile`.
 # `brew bundle --help`: Show help messages.
 
 

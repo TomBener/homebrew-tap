@@ -15,10 +15,10 @@ Install [Homebrew](https://brew.sh):
 /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 ```
 
-Install via [Brewfile.rb](Brewfile.rb) in the current directory. Make sure you have read the file and understand what it does before running it:
+Install via [Brewfile](Brewfile) in the current directory. Make sure you have read the file and understand what it does before running it:
 
 ```shell
-brew bundle --file Brewfile.rb
+brew bundle --file Brewfile
 ```
 
 Tap this repository to install individual formulae and casks:
