@@ -253,7 +253,6 @@ cask "adobe-acrobat-pro"
 # cask "clash-verge-rev"
 # cask "coconutbattery"
 cask "chatgpt"
-cask "codex"
 cask "antigravity-cli"
 cask "claude"
 cask "claude-code"
@@ -350,8 +349,8 @@ cask "font-noto-emoji"
 
 # npm global packages
 npm "defuddle"
-npm "devonthink"
-npm "pandiff"
+# npm "devonthink"
+# npm "pandiff"
 npm "pangu"
 npm "pinyin"
 
