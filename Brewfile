@@ -161,7 +161,7 @@ brew "steipete/tap/oracle"
 # brew "xdotool"
 # brew "slides"
 # brew "aria2"
-# brew "gdal" # For installing R package `leaflet`
+# brew "gdal" # System lib only (for R packages `leaflet`/`sf`); R packages themselves live in r-packages.r
 
 # Casks
 cask "dropbox"
@@ -228,6 +228,10 @@ cask "popclip"
 # cask "cherry-studio"
 # cask "chatwise"
 # cask "pearcleaner"
+# R itself is managed by rig, NOT by brew. R *packages* are NOT managed here either:
+# they live in `Install-macOS/Programming packages/r-packages.r` (pak -> ~/.R/packages).
+# To add an R package, edit `package_list` in that script and re-run it:
+#   Rscript ~/Library/Mobile\ Documents/com~apple~CloudDocs/Install-macOS/Programming\ packages/r-packages.r
 cask "r-lib/rig/rig" # R installation manager
 # rig add release # Add the latest release
 cask "quarto-prerelease"
