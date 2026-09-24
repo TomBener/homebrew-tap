@@ -178,7 +178,7 @@ cask "keyboard-maestro"
 cask "obsidian"
 cask "github"
 cask "zed"
-cask "visual-studio-code"
+# cask "visual-studio-code"
 cask "google-chrome"
 cask "thebrowsercompany-dia"
 cask "firefox"
@@ -265,7 +265,7 @@ cask "claude"
 # cask "claude-code"  # 改用 native 安装（自带自动更新）：curl -fsSL https://claude.ai/install.sh | bash
 cask "codex"
 cask "steipete/tap/codexbar"
-cask "paseo"
+# cask "paseo"
 # cask "productdevbook/tap/portkiller"
 # cask "cursor-cli"
 cask "markedit"
@@ -356,6 +356,7 @@ cask "font-harano-aji"
 cask "font-noto-emoji"
 
 # npm global packages
+npm "@getpaseo/cli"
 npm "defuddle"
 # npm "devonthink"
 # npm "pandiff"
@@ -382,8 +383,8 @@ mas "Noir", id: 1592917505
 # mas "Numbers", id: 409203825
 # mas "Keynote", id: 409183694
 mas "Microsoft Word", id: 462054704
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
+# mas "Microsoft Excel", id: 462058435
+# mas "Microsoft PowerPoint", id: 462062816
 # mas "SingleFile for Safari", id: 6444322545
 # mas "Wayback Machine", id: 1472432422
 mas "Eudic", id: 434350458
