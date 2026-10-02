@@ -47,8 +47,6 @@ brew "zsh-syntax-highlighting"
 brew "powerlevel10k"
 
 # Formulae
-# 提供 tailscale CLI 和 tailscaled
-brew "tailscale"
 brew "moreutils"
 brew "wget"
 # brew "pandoc"
@@ -272,7 +270,7 @@ cask "steipete/tap/codexbar"
 # cask "cursor-cli"
 cask "markedit"
 # cask "ollama"
-# cask "tailscale-app"
+cask "tailscale-app"
 # cask "lidanglesensor"
 # cask "discord"
 # cask "lzhgus/tap/capso"
