@@ -141,6 +141,10 @@ brew "herdr"
 brew "sqlite-rsync"
 brew "opencode"
 brew "steipete/tap/oracle"
+brew "steipete/tap/remindctl"  # Apple Reminders CLI
+brew "steipete/tap/imsg"  # iMessage CLI
+# acal 来自未受信任的 tap，brew bundle 前先跑：brew trust --formula helmi/tap/acal
+brew "helmi/tap/acal"  # Apple Calendar CLI
 # brew "yazi"
 # brew "anomalyco/tap/opencode"
 # brew "macos-trash"
