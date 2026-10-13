@@ -268,6 +268,7 @@ cask "antigravity-cli"
 cask "claude"
 # cask "claude-code"  # 改用 native 安装（自带自动更新）：curl -fsSL https://claude.ai/install.sh | bash
 cask "codex"
+cask "grok-bot"
 cask "steipete/tap/codexbar"
 # cask "paseo"
 # cask "productdevbook/tap/portkiller"
