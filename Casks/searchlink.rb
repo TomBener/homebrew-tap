@@ -1,8 +1,8 @@
 cask "searchlink" do
-    version "2.3.93"
-    sha256 "7bf7230a6b8e32cb2c30ff94b1f58e7beb3d7f2ea53d3aac759d217bb5a608fd"
+    version "2.3.94"
+    sha256 "ab0715188e53474789ed1ce4d769ba3462280b0c87c4340920fd15705d269678"
 
-    url "https://github.com/ttscoff/searchlink/releases/download/2.3.93/SearchLink.zip"
+    url "https://github.com/ttscoff/searchlink/releases/download/2.3.94/SearchLink.zip"
     name "SearchLink"
     desc "A macOS Service for Markdown writers to add hyperlinks without switching to the browser"
     homepage "https://github.com/ttscoff/searchlink"
