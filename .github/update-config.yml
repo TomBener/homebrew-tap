@@ -40,10 +40,15 @@ formulas:
     type: github
     repo: shandianshuo/shandianshuo-releases
     file: Casks/shandianshuo.rb
-    asset_pattern: shandianshuo_.*_universal\.dmg
+    asset_pattern: shandianshuo_.*_(arm64|x64)\.dmg
 
   maccalendar:
     type: github
     repo: bylinxx/MacCalendar
     file: Casks/maccalendar.rb
-    asset_pattern: MacCalendar_.*\.dmg 
+    asset_name: MacCalendar.dmg
+
+  font-zhibi:
+    type: zhibi
+    homepage: https://zhibi.fun/
+    file: Casks/font-zhibi.rb

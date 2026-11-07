@@ -13,15 +13,26 @@ class FormulaUpdater
 
   def update_all
     puts "Starting formula updates..."
+    failed = []
     @config['formulas'].each do |name, formula|
-      next unless formula['type'] == 'github'
       begin
         puts "Checking #{name}..."
-        update_github_release(formula['repo'], formula['file'])
+        case formula['type']
+        when 'github'
+          update_github_release(formula['repo'], formula['file'])
+        when 'zhibi'
+          update_zhibi(formula)
+        else
+          next
+        end
       rescue => e
         puts "Error updating #{name}: #{e.message}"
+        failed << name
       end
     end
+
+    # Fail the job so GitHub sends a notification. Other formulas are still checked first.
+    abort "Failed to update: #{failed.join(', ')}" unless failed.empty?
   end
 
   private
@@ -170,26 +181,61 @@ class FormulaUpdater
   end
 
   def update_maccalendar(content, version, release)
-    asset = release.assets.find { |a| a.name.match?(/MacCalendar_.*\.dmg/) }
+    asset = release.assets.find { |a| a.name == 'MacCalendar.dmg' }
     raise "Could not find MacCalendar DMG file" unless asset
-    new_sha = calculate_sha256(asset.browser_download_url)
-    content
-      .sub(/version "[^"]+"/, "version \"#{version}\"")
-      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
-      .sub(
-        /url "[^"]+"/,
-        "url \"#{asset.browser_download_url}\""
-      )
-  end
-
-  def update_shandianshuo(content, version, release)
-    asset = release.assets.find { |a| a.name.match?(/shandianshuo_.*_universal\.dmg/) }
-    raise "Could not find shandianshuo universal DMG file" unless asset
     new_sha = calculate_sha256(asset.browser_download_url)
     # URL is derived from version via interpolation, so only version + sha256 change
     content
       .sub(/version "[^"]+"/, "version \"#{version}\"")
       .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
+  end
+
+  def update_shandianshuo(content, version, release)
+    arm_asset = release.assets.find { |a| a.name == "shandianshuo_#{version}_arm64.dmg" }
+    intel_asset = release.assets.find { |a| a.name == "shandianshuo_#{version}_x64.dmg" }
+    raise "Could not find shandianshuo arm64 DMG file" unless arm_asset
+    raise "Could not find shandianshuo x64 DMG file" unless intel_asset
+    arm_sha = calculate_sha256(arm_asset.browser_download_url)
+    intel_sha = calculate_sha256(intel_asset.browser_download_url)
+    # URL is derived from version and arch via interpolation, so only version + sha256 change
+    content
+      .sub(/version "[^"]+"/, "version \"#{version}\"")
+      .sub(
+        /sha256 arm:\s+"[^"]+",\s+intel: "[^"]+"/,
+        "sha256 arm:   \"#{arm_sha}\",\n         intel: \"#{intel_sha}\""
+      )
+  end
+
+  # 稚笔 is not on GitHub. The download button is in the site's JS bundle,
+  # which links to /downloads/zhibi-v<version>.zip.
+  def update_zhibi(formula)
+    homepage = formula['homepage']
+    html = HTTP.follow.get(homepage).to_s
+    bundle = html[%r{/assets/index-[^"']+\.js}]
+    raise "Could not find JS bundle on #{homepage}" unless bundle
+
+    js = HTTP.follow.get(URI.join(homepage, bundle).to_s).to_s
+    latest_version = js[%r{/downloads/zhibi-v(\d+(?:\.\d+)+)\.zip}, 1]
+    raise "Could not find download link in #{bundle}" unless latest_version
+
+    content = File.read(formula['file'])
+    current_version = content.match(/version "([^"]+)"/)[1]
+    puts "Current version: #{current_version}"
+    puts "Latest version: #{latest_version}"
+    return unless Gem::Version.new(latest_version) > Gem::Version.new(current_version)
+
+    url = URI.join(homepage, "/downloads/zhibi-v#{latest_version}.zip").to_s
+    response = HTTP.follow.get(url)
+    # The site returns 200 with an HTML page for missing files.
+    unless response.status.success? && response.mime_type == 'application/zip'
+      raise "#{url} is not a zip file (#{response.status}, #{response.mime_type})"
+    end
+    new_sha = Digest::SHA256.hexdigest(response.body.to_s)
+
+    updated_content = content
+      .sub(/version "[^"]+"/, "version \"#{latest_version}\"")
+      .sub(/sha256 "[^"]+"/, "sha256 \"#{new_sha}\"")
+    commit_update(formula['file'], updated_content, latest_version)
   end
 
   def commit_update(file_path, content, version)
