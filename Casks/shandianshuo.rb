@@ -1,8 +1,11 @@
 cask "shandianshuo" do
-  version "0.7.8"
-  sha256 "ad99825e9ec02c277653dfced3db95ea0167afb1244e50fe400fe0689263609e"
+  arch arm: "arm64", intel: "x64"
 
-  url "https://github.com/shandianshuo/shandianshuo-releases/releases/download/v#{version}/shandianshuo_#{version}_universal.dmg"
+  version "0.8.1"
+  sha256 arm:   "1e401338973645365b2a15bbd938a946722e703cec8cb50ee7eeb240912b5cf4",
+         intel: "5f58f5182bfeb1892809b96f91362474896cdfbb37b445ce03da4c11e5ba25c0"
+
+  url "https://github.com/shandianshuo/shandianshuo-releases/releases/download/v#{version}/shandianshuo_#{version}_#{arch}.dmg"
   name "闪电说"
   name "Shandianshuo"
   desc "AI voice input that transcribes and refines speech on-device"
