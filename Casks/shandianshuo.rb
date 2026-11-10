@@ -1,9 +1,9 @@
 cask "shandianshuo" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.8.1"
-  sha256 arm:   "1e401338973645365b2a15bbd938a946722e703cec8cb50ee7eeb240912b5cf4",
-         intel: "5f58f5182bfeb1892809b96f91362474896cdfbb37b445ce03da4c11e5ba25c0"
+  version "0.8.2"
+  sha256 arm:   "0084ee59ce1fa0fc2a7a21da5254e6a215e939f0d7095224495be6537341cee7",
+         intel: "a1d79f5879ba3afb692a3d9f29768aaf50c975d77a956191547aeadf945fac01"
 
   url "https://github.com/shandianshuo/shandianshuo-releases/releases/download/v#{version}/shandianshuo_#{version}_#{arch}.dmg"
   name "闪电说"
