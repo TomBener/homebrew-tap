@@ -1,6 +1,6 @@
 cask "font-zhibi" do
-  version "3.26"
-  sha256 "b848e7c9278b37df290fed54e36ae9016ed994792e81f98a4935ce5162661fac"
+  version "3.27"
+  sha256 "293665dadd7f77cf79a7c72314e413cb50de7e64fcd8701ec8abc9031a5b03e5"
 
   url "https://zhibi.fun/downloads/zhibi-v#{version}.zip"
   name "Zhibi"
