@@ -14,6 +14,10 @@ class Zotagent < Formula
   depends_on "openjdk"
 
   def install
+    # Build native modules against Homebrew node's bundled headers.
+    # Otherwise node-gyp downloads headers once per module in parallel,
+    # and the race fails the build ("Completion callback never invoked").
+    ENV["npm_config_nodedir"] = Formula["node"].opt_prefix
     system "npm", "install", "--omit=dev", *std_npm_args(ignore_scripts: false)
     (bin/"zotagent").write_env_script libexec/"bin/zotagent", Language::Java.overridable_java_home_env
   end
