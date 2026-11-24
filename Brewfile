@@ -283,7 +283,7 @@ cask "tailscale-app"
 # cask "expressvpn"
 # cask "purevpn"
 cask "typeless"
-cask "artemyurov/tomobar/tomobar"  # 番茄钟，全屏强制休息
+cask "artemyurov/tomobar/tomobar"
 # cask "shottr"
 # cask "shandianshuo"
 # cask "google-gemini"
