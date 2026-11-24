@@ -265,6 +265,7 @@ cask "adobe-acrobat-pro"
 # cask "clash-verge-rev"
 # cask "coconutbattery"
 cask "chatgpt"
+cask "antigravity"
 cask "antigravity-cli"
 cask "claude"
 # cask "claude-code"  # 改用 native 安装（自带自动更新）：curl -fsSL https://claude.ai/install.sh | bash
