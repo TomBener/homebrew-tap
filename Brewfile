@@ -66,7 +66,6 @@ brew "pnpm"
 # brew "tag"
 brew "ffmpeg"
 brew "wader/tap/fq"
-brew "nikgrbn/tap/finder-menu"  # Finder 右键菜单增强；装完要跑 finder-menu enable
 # brew "ocrmypdf"
 # brew "tesseract-lang"
 brew "imagemagick"
